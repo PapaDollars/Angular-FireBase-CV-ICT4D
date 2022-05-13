@@ -8,6 +8,7 @@ import {MessageModule} from 'primeng/message';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  [x: string]: any;
 
   birthday : Date;
   ngOnInit() {
