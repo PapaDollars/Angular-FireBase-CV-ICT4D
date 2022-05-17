@@ -1,0 +1,25 @@
+// *{
+//   margin: 0px;
+//   padding: 0px;
+//   background-color:blanchedalmond ;
+// }
+.p-scrollpanel p {
+  padding: 5rem;
+  line-height: 1.5;
+  margin: 0;
+}
+.custombar1 .p-scrollpanel-bar {
+  background-color: var(--primary-color);
+  opacity: 1;
+}
+.custombar1  .p-scrollpanel-wrapper {
+    border-right: 9px solid var(--layer-1);
+}
+/*  */
+.m-2{
+  padding-top: 2%;
+  color:rgb(102, 148, 255);
+}
+.img{
+  text-align: center;
+}
