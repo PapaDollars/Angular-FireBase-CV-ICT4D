@@ -3,6 +3,7 @@
 //   padding: 0px;
 //   background-color:blanchedalmond ;
 // }
+
 .p-scrollpanel p {
   padding: 5rem;
   line-height: 1.5;
@@ -18,8 +19,16 @@
 /*  */
 .m-2{
   padding-top: 2%;
-  color:rgb(102, 148, 255);
+  color:rgb(159, 172, 255);
 }
-.img{
+.image{
   text-align: center;
+}
+#myfile{
+  display: none;
+}
+.copyright {
+  background-color: rgb(7, 23, 79);
+  color: white;
+  padding-left: 35%;
 }

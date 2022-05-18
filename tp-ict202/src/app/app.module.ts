@@ -8,13 +8,18 @@ import {ScrollPanelModule} from 'primeng/scrollpanel';
 import {SplitterModule} from 'primeng/splitter';
 import {FieldsetModule} from 'primeng/fieldset';
 import {TimelineModule} from 'primeng/timeline';
+
 import {CardModule} from 'primeng/card';
 
 import { AppComponent } from './app.component';
+// import { LeftSideComponent } from './left-side/left-side.component';
+// import { RightSideComponent } from './right-side/right-side.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    // LeftSideComponent,
+    // RightSideComponent,
   ],
   imports: [
     BrowserModule,
