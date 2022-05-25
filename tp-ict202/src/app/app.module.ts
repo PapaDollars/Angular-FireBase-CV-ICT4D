@@ -10,6 +10,8 @@ import {FieldsetModule} from 'primeng/fieldset';
 import {TimelineModule} from 'primeng/timeline';
 import {SidebarModule} from 'primeng/sidebar';
 import {TabViewModule} from 'primeng/tabview';
+import { LangueserviceService } from './langueservice.service';
+import { CentreIserviceService } from './centre-iservice.service';
 
 import {CardModule} from 'primeng/card';
 
@@ -51,7 +53,7 @@ import { CompetenceserviceService } from './competenceservice.service';
     SidebarModule,
     TabViewModule
   ],
-  providers: [DiplomeserviceService,FormationserviceService,CompetenceserviceService],
+  providers: [DiplomeserviceService,FormationserviceService,CompetenceserviceService,LangueserviceService,CentreIserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
