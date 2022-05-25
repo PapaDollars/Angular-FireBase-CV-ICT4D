@@ -1,0 +1,46 @@
+<div class="summaty">
+  <p-card>
+    <div>
+      <h3>{{ this.cv[0].resume }}</h3>
+    </div>
+    <div
+      class="overflow-hidden text-overflow-ellipsis"
+      [style]="{ width: '400px' }"
+    >
+      {{ this.cv[0].contenuResume }}
+  </div>
+    <div
+    class="overflow-hidden text-overflow-ellipsis contenuResume2"
+    [style]="{ width: '400px' }" id="contenuResume2"
+  >
+    {{ this.cv[0].contenuResume2 }}
+  </div>
+  <p style="color:blue"  (click)="plus()" id="plus">Plus...</p>
+  </p-card>
+</div>
+<p-scrollPanel [style]="{ width: '100%', height: '100px' }">
+  <div>
+    <h3>{{ this.cv[0].langue }}</h3>
+  </div>
+  <ul type="square">
+    <li>
+      <div>{{ this.cv[0].francais }}</div>
+    </li>
+    <li>
+      <div>{{ this.cv[0].anglais }}</div>
+    </li>
+  </ul>
+</p-scrollPanel>
+<p-scrollPanel [style]="{ width: '100%', height: '100px' }">
+  <div>
+    <h3>{{ this.cv[0].centreInteret }}</h3>
+  </div>
+  <ul class="list-disc">
+    <li>
+      <div>{{ this.cv[0].centre1 }}</div>
+    </li>
+    <li>
+      <div>{{ this.cv[0].centre2 }}</div>
+    </li>
+  </ul>
+</p-scrollPanel>

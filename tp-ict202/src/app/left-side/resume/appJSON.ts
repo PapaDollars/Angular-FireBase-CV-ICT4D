@@ -1,0 +1,14 @@
+export class Cv {
+  resume!: string;
+  contenuResume!: string;
+
+  langue!: string;
+  francais!: string;
+  anglais!: string;
+
+  centreInteret!: string;
+  centre1!: string;
+  centre2!: string;
+
+}
+

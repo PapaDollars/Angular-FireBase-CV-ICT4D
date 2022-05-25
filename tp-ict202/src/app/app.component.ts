@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
+  display:any;
+
   cv: Cv[] = [
     { details: "Details Personnels",
       nom: "IYA BOULAMDI DANIEL",
@@ -67,6 +69,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     localStorage.setItem("cv",JSON.stringify(this.cv));
     let get = localStorage.getItem(JSON.parse("cv"));
+    console.log(get);
 
   }
 

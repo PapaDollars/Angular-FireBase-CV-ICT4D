@@ -1,0 +1,15 @@
+<p-fieldset [transitionOptions]="'1ms'">
+  <ng-template pTemplate="header" [toggleable]="true">{{
+    this.cv[0].formation
+  }}</ng-template>
+  <p-scrollPanel [style]="{ width: '100%', height: '150px' }">
+    <div>
+      <h4>{{ this.cv[0].themeFormation1 }}</h4>
+    </div>
+    <div>{{ this.cv[0].descriptionFormation1 }}</div>
+    <div>
+      <h4>{{ this.cv[0].themeFormation2 }}</h4>
+    </div>
+    <div>{{ this.cv[0].descriptionFormation2 }}</div>
+  </p-scrollPanel>
+</p-fieldset>

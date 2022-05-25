@@ -1,284 +1,114 @@
-<div class="grid bg-primary">
-  <div class="col-12 md:col-6 lg:col-3 sm:flex-nowrap">
-    <p-card [style]="{ background: 'rgb(159, 172, 255)' }">
-      <div class="image">
-        <img src="./assets/images/img.png" width="150" height="150" alt="" />
-        <!-- <img id="imgPreview" alt="" style="width: 180px; height: 180px;" />
-          <label>Images<input type = "file" id = "myfile" /></label> -->
+<p-tabView>
+
+  <p-tabPanel header="CV ">
+    <div class="grid bg-primary">
+      <div class="col-12 md:col-6 lg:col-3 sm:flex-nowrap">
+        <p-card [style]="{ background: 'rgb(159, 172, 255)' }">
+          <app-information></app-information>
+
+          <br />
+
+          <app-resume></app-resume>
+        </p-card>
       </div>
-      <p-card>
-        <div>
-          <h3>{{ this.cv[0].details }}</h3>
-        </div>
-        <div>{{ this.cv[0].nom }}</div>
-        <div>
-          <a
-            href="./mailto:iyadaniel6@gmail.com "
-            class="no-underline hover:underline"
-          >
-            {{ this.cv[0].mail }}
-          </a>
-        </div>
-        <div>{{ this.cv[0].numero }}</div>
-        <div>{{ this.cv[0].ville }}</div>
-        <div>{{ this.cv[0].nationalite }}</div> </p-card
-      ><br />
-      <div class="icons">
-        <a href="https://www.linkedin.com/in/daniel-iya-a29519181/"
-          ><i class="pi pi-linkedin pl-8 pr-5" style="font-size: 2rem"></i
-        ></a>
-        <a
-          href="https://stackoverflow.com/users/18965791/papa-dollars?tab=profile"
-          ><i class="pi pi-star pr-5" style="font-size: 2rem"></i
-        ></a>
-        <a href="https://github.com/PapaDollars"
-          ><i class="pi pi-github" style="font-size: 2rem"></i
-        ></a>
-      </div>
-      <br />
-      <div class="summaty">
-        <p-card>
-          <div>
-            <h3>{{ this.cv[0].resume }}</h3>
-          </div>
-          <div
-            class="overflow-hidden text-overflow-ellipsis"
-            [style]="{ width: '400px' }"
-          >
-            {{ this.cv[0].contenuResume }}
+      <div class="col-12 md:col-6 lg:col-9" X>
+        <p-card [style]="{ background: 'rgb(159, 172, 255)' }">
+          <div class="p-2">
+            <app-diploma></app-diploma>
+
+            <br />
+
+            <app-formation></app-formation>
+
+            <br />
+
+            <app-competence></app-competence>
           </div>
         </p-card>
       </div>
-      <p-scrollPanel [style]="{ width: '100%', height: '100px' }">
-        <div>
-          <h3>{{ this.cv[0].langue }}</h3>
-        </div>
-        <ul type="square">
-          <li>
-            <div>{{ this.cv[0].francais }}</div>
-          </li>
-          <li>
-            <div>{{ this.cv[0].anglais }}</div>
-          </li>
-        </ul>
-      </p-scrollPanel>
-      <p-scrollPanel [style]="{ width: '100%', height: '100px' }">
-        <div>
-          <h3>{{ this.cv[0].centreInteret }}</h3>
-        </div>
-        <ul class="list-disc">
-          <li>
-            <div>{{ this.cv[0].centre1 }}</div>
-          </li>
-          <li>
-            <div>{{ this.cv[0].centre2 }}</div>
-          </li>
-        </ul>
-      </p-scrollPanel>
-    </p-card>
-  </div>
+    </div>
+  </p-tabPanel>
 
-  <div
-    class="col-12 md:col-6 lg:col-9 sm:flex-nowrap scalein animation-duration-3000 fadeoutright animation-duration-1000"
-  >
-    <p-card [style]="{ background: 'rgb(159, 172, 255)' }">
-      <div class="p-2">
-        <p-fieldset
-          [transitionOptions]="'1ms'"
-        >
-          <ng-template pTemplate="header" [toggleable]="true">{{
-            this.cv[0].diplome
-          }}</ng-template>
-          <p-scrollPanel [style]="{ width: '100%', height: '150px' }">
-            <div>
-              <h4>{{ this.cv[0].nomDiplome1 }}</h4>
-            </div>
-            <ul type="square">
-              <li>
-                <div>{{ this.cv[0].bac }}</div>
-              </li>
-              <li>
-                <div>{{ this.cv[0].probatoire }}</div>
-              </li>
-              <li>
-                <div>{{ this.cv[0].bepc }}</div>
-              </li>
-            </ul>
-            <div>
-              <h4>{{ this.cv[0].nomDiplome2 }}</h4>
-            </div>
-            <ul type="square">
-              <li>
-                <div>{{ this.cv[0].cep }}</div>
-              </li>
-            </ul>
-          </p-scrollPanel> </p-fieldset
-        ><br />
-        <p-fieldset
-          [transitionOptions]="'1ms'"
-        >
-          <ng-template pTemplate="header" [toggleable]="true">{{
-            this.cv[0].formation
-          }}</ng-template>
-          <p-scrollPanel [style]="{ width: '100%', height: '150px' }">
-            <div>
-              <h4>{{ this.cv[0].themeFormation1 }}</h4>
-            </div>
-            <div>{{ this.cv[0].descriptionFormation1 }}</div>
-            <div>
-              <h4>{{ this.cv[0].themeFormation2 }}</h4>
-            </div>
-            <div>{{ this.cv[0].descriptionFormation2 }}</div>
-          </p-scrollPanel> </p-fieldset
-        ><br />
-        <p-fieldset
-          [transitionOptions]="'1ms'"
-        >
-          <ng-template pTemplate="header" [toggleable]="true">{{
-            this.cv[0].competence
-          }}</ng-template>
-          <p-scrollPanel [style]="{ width: '100%', height: '150px' }">
-            <ul class="list-disc">
-              <li>
-                <div>{{ this.cv[0].competence1 }}</div>
-              </li>
-              <li>
-                <div>{{ this.cv[0].competence2 }}</div>
-              </li>
-              <li>
-                <div>{{ this.cv[0].competence3 }}</div>
-              </li>
-              <li>
-                <div>{{ this.cv[0].competence4 }}</div>
-              </li>
-              <li>
-                <div>{{ this.cv[0].competence5 }}</div>
-              </li>
-              <li>
-                <div>{{ this.cv[0].competence6 }}</div>
-              </li>
-              <li>
-                <div>{{ this.cv[0].competence7 }}</div>
-              </li>
-              <li>
-                <div>{{ this.cv[0].competence8 }}</div>
-              </li>
-              <li>
-                <div>{{ this.cv[0].competence9 }}</div>
-              </li>
-              <li>
-                <div>{{ this.cv[0].competence10 }}</div>
-              </li>
-            </ul>
-          </p-scrollPanel>
-        </p-fieldset>
+  <p-tabPanel header="Details Personnels">
+    <div class="grid bg-primary">
+      <div class="col-12 md:col-12 lg:col-12 sm:flex-nowrap">
+        <p-card [style]="{ background: 'rgb(159, 172, 255)' }">
+          <app-information></app-information>
+        </p-card>
       </div>
-    </p-card>
-  </div>
-</div>
+    </div>
+  </p-tabPanel>
+
+  <p-tabPanel header="Resumes">
+    <div class="grid bg-primary">
+      <div class="col-12 md:col-12 lg:col-12 sm:flex-nowrap">
+        <p-card [style]="{ background: 'rgb(159, 172, 255)' }">
+          <app-resume></app-resume>
+        </p-card>
+      </div>
+    </div>
+  </p-tabPanel>
+
+  <p-tabPanel header="Diplomes">
+    <div class="grid bg-primary">
+      <div class="col-12 md:col-12 lg:col-12 sm:flex-nowrap">
+        <p-card [style]="{ background: 'rgb(159, 172, 255)' }">
+          <app-diploma></app-diploma>
+        </p-card>
+      </div>
+    </div>
+  </p-tabPanel>
+
+  <p-tabPanel header="Formations">
+    <div class="grid bg-primary">
+      <div class="col-12 md:col-12 lg:col-12 sm:flex-nowrap">
+        <p-card [style]="{ background: 'rgb(159, 172, 255)' }">
+          <app-formation></app-formation>
+        </p-card>
+      </div>
+    </div>
+  </p-tabPanel>
+
+  <p-tabPanel header="Competences">
+    <div class="grid bg-primary">
+      <div class="col-12 md:col-12 lg:col-12 sm:flex-nowrap">
+        <p-card [style]="{ background: 'rgb(159, 172, 255)' }">
+          <app-competence></app-competence>
+        </p-card>
+      </div>
+    </div>
+  </p-tabPanel>
+
+  <p-tabPanel header="Themes">
+
+    <div>
+      <p-sidebar [(visible)]="display" position="top" [baseZIndex]="10000">
+        <h3>THEMES</h3>
+        <div>
+          <button class="theme" style="background-color: blue; color: white">
+            Bleu
+          </button>
+          <button class="theme" style="background-color: red; color: white">
+            Rouge
+          </button>
+          <button class="theme" style="background-color: green; color: white">
+            Verte
+          </button>
+        </div>
+      </p-sidebar>
+      <p-button
+        type="text"
+        (click)="display = true"
+        label="Themes"
+      ></p-button>
+    </div>
+
+  </p-tabPanel>
+
+</p-tabView>
 
 <div class="grid copyright">
   <div class="col-12 md:col-6 lg:col-9">
     <div id="copyright">{{ this.cv[0].copyright }}</div>
   </div>
 </div>
-
-<!-- <div class="card ">
-
-    <p-splitter [style]="{'height': '740px'}" [panelSizes]="[10,90]"  >
-      <ng-template pTemplate>
-
-        <div class="imformation grid ">
-          <img src="./assets/images/img.png" width="120" alt="" />
-          <p>
-            IYA BOULAMDI DANIEL <br />
-            <a href="./mailto:iyadaniel6@gmail.com ">boite</a> iyadaniel51@gmail.com
-            <br />
-            +237696971951 <br />
-            Nkufulu yaoundé <br />
-            31-05-2002<br />
-            Yaoundé <br />
-            Homme Camerounais <br />
-            Célibataire
-          </p>
-
-          <div class="col-12 md:col-4 ">
-            <p-scrollPanel [style]="{ width: '100%', height: '100px' }">
-              <h3>LANGUES</h3>
-              <p>
-                - Francais<br />
-                - Anglais
-              </p>
-            </p-scrollPanel>
-          </div>
-
-          <div class="col-12 md:col-4">
-            <p-scrollPanel [style]="{ width: '100%', height: '100px' }">
-              <h3>CENTRES D'INTERET</h3>
-              <ul type="square">
-                <li>Sport: Football</li>
-                <li>Sport: Football</li>
-              </ul>
-            </p-scrollPanel>
-          </div>
-        </div>
-      </ng-template>
-
-      <ng-template pTemplate>
-
-        <div class="flex p-2" >
-          <p-fieldset [transitionOptions]="'1ms'" [style]="{width: '900px',height: '200px'}">
-            <ng-template pTemplate="header" [toggleable]="true">Diplomes</ng-template>
-            Content
-          </p-fieldset>
-          <p-fieldset [transitionOptions]="'1ms'" [style]="{width: '900px',height: '200px'}">
-            <ng-template pTemplate="header" [toggleable]="true">Experience Profetionnelles</ng-template>
-            Content
-          </p-fieldset>
-          <p-fieldset [transitionOptions]="'1ms'" [style]="{width: '900px',height: '200px'}">
-            <ng-template pTemplate="header" [toggleable]="true">Competences</ng-template>
-            Content
-          </p-fieldset>
-        </div>
-
-      </ng-template>
-
-  </p-splitter>
-</div> -->
-
-<!-- <h1>BIENVENU SUR ANGULAR CLI</h1>
-<h3>
-  Primeng a ete instaler, mais il reste l'importation de quelque bibliotheque
-  (Primeng)
-</h3>
-<p>
-  Si vous consulter ce projet apres le Jeudi 12 mai 2022, sacher que la
-  bibliotheque manquente a deja ete ajouter. Vous pouvez deja utiliser le
-  framework primeng dans votre composent que voulez creer pour faire la
-  section qui vous a ete confier !
-  <br /><br />
-  <i> Texte Modifier par papa_dollars le 11 mai 2022. </i>
-  <br /><br /><br />
-</p>
-<p>
-  <strong> Test Primeng : </strong>
-</p>
-<p-calendar [(ngModel)]="birthday" [showIcon]="true" dateFormat="mm/dd/yy">
-</p-calendar>
-<br><br><br>
-<button
-    pButton type="button">
-    Bouton
-</button>
-<p>
-  lien youtube pour vous aidez a comprendre
-  <a href="https://youtu.be/a6VLkLpACqQ">
-    <strong>Primeng</strong>
-  </a>
-  <br />
-  lien pour installer
-  <a href="http://youtube.com/watch?v=MWWYTj9uHyI&t=26s">
-    <strong>Primeng</strong>
-  </a>
-  dans votre projet
-</p> -->
