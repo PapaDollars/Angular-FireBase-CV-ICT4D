@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import { Cv } from './appJSON';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -63,13 +64,25 @@ export class AppComponent implements OnInit {
       copyright: "Copyright @ 2022 Papa_dollar$ | tous droits réservés"
     }
   ];
+form: FormGroup ;
+color = 'cyan';
 
-  constructor() {}
+constructor(private formBuilder: FormBuilder) {
+  this.form = formBuilder.group({
+    theme: this.color
+  })
+
+  this.form.valueChanges.subscribe(data => {
+    this.color = data.theme
+    console.log('Form changes', data)
+  })
+}
 
   ngOnInit() {
     localStorage.setItem("cv",JSON.stringify(this.cv));
     let get = localStorage.getItem(JSON.parse("cv"));
     console.log(get);
+    console.log();
 
   }
 
