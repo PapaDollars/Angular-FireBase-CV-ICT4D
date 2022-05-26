@@ -26,7 +26,6 @@ import { DiplomeserviceService } from './diplomeservice.service';
 import { FormationserviceService } from './formationservice.service';
 import {ProgressBarModule} from 'primeng/progressbar';
 import { CompetenceserviceService } from './competenceservice.service';
-import { ThemeColorService } from './theme-color.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +53,7 @@ import { ThemeColorService } from './theme-color.service';
     TabViewModule,
     ReactiveFormsModule
   ],
-  providers: [DiplomeserviceService,FormationserviceService,CompetenceserviceService,LangueserviceService,CentreIserviceService,ThemeColorService],
+  providers: [DiplomeserviceService,FormationserviceService,CompetenceserviceService,LangueserviceService,CentreIserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
