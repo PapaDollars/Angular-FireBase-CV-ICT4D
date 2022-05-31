@@ -3,37 +3,37 @@
   <div class="card">
     <p-tabView>
       <!-- sign in -->
-      <p-tabPanel header="Sign In"><br>
+      <p-tabPanel header="Sign In" *ngIf="isSignedIn"><br>
         <h1>Connection</h1><br>
         <span class="p-float-label">
-          <input id="float-input" type="text" pInputText>
+          <input id="float-input"   [(ngModel)]="email"  pInputText>
           <label for="float-input">Exemple@gmail.com</label>
         </span><br><br>
         <span class="p-float-label">
-          <input id="float-input" type="text" pInputText>
+          <input id="float-input" type="text"  [(ngModel)]="password" pInputText>
           <label for="float-input">Mot de Passe</label>
         </span>
         <div> <br><br><br><br>
-          <button pButton type="button" label="To log in"></button>
+          <button pButton type="button" (click)="onssignedin()"   label="To log in"></button>
         </div>
       </p-tabPanel>
       <!-- sign up -->
-      <p-tabPanel header="Sign Up"><br>
+      <p-tabPanel header="Sign Up" *ngIf="isSignedIn"><br>
         <h1>Registration</h1><br>
         <span class="p-float-label">
           <input id="float-input" type="text" pInputText>
           <label for="float-input">Nom d'utilisateur</label>
         </span><br><br>
         <span class="p-float-label">
-          <input id="float-input" type="text" pInputText>
+          <input id="float-input" type="text" [(ngModel)]="email" pInputText>
           <label for="float-input">Exemple@gmail.com</label>
         </span><br><br>
         <span class="p-float-label">
-          <input id="float-input" type="text" pInputText>
+          <input id="float-input" type="text"  [(ngModel)]="password" pInputText>
           <label for="float-input">Mot de Passe</label>
         </span>
         <div><br><br><br><br>
-          <button pButton type="button" label="Register"
+          <button pButton type="button" (click)="onssignedup()" label="Register"
           class="p-button-raised p-button-rounded"></button>
         </div>
       </p-tabPanel>
@@ -41,3 +41,5 @@
   </div>
 
 </div>
+
+<app-home *ngIf="isSignedIn" (isLogout)="handlelogout()"></app-home>

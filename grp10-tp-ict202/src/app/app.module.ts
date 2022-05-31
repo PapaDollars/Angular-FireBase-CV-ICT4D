@@ -11,6 +11,13 @@ import {TimelineModule} from 'primeng/timeline';
 import {SidebarModule} from 'primeng/sidebar';
 import {TabViewModule} from 'primeng/tabview';
 import {InputTextModule} from 'primeng/inputtext';
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { FirebaseService } from './firebase.service';
+import { NgModel } from '@angular/forms';
 
 import {CardModule} from 'primeng/card';
 
@@ -18,11 +25,14 @@ import { AppComponent } from './app.component';
 import { DialogModule } from "primeng/dialog";
 import {ProgressBarModule} from 'primeng/progressbar';
 import { SigninComponent } from './signin/signin.component';
+import { environment } from 'src/environments/environment';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-      SigninComponent
+      SigninComponent,
+      HomeComponent
    ],
   imports: [
     BrowserModule,
@@ -40,9 +50,12 @@ import { SigninComponent } from './signin/signin.component';
     SidebarModule,
     TabViewModule,
     ReactiveFormsModule,
-    InputTextModule
+    InputTextModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
