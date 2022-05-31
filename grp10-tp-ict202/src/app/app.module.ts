@@ -1,25 +1,46 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AngularFireModule } from "@angular/fire/compat";
-import { AngularFireAuthModule } from "@angular/fire/compat/auth";
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CalendarModule} from 'primeng/calendar';
+import {ButtonModule} from 'primeng/button';
+import {ScrollPanelModule} from 'primeng/scrollpanel';
+import {SplitterModule} from 'primeng/splitter';
+import {FieldsetModule} from 'primeng/fieldset';
+import {TimelineModule} from 'primeng/timeline';
+import {SidebarModule} from 'primeng/sidebar';
+import {TabViewModule} from 'primeng/tabview';
+import {InputTextModule} from 'primeng/inputtext';
 
-import { AppRoutingModule } from './app-routing.module';
+import {CardModule} from 'primeng/card';
+
 import { AppComponent } from './app.component';
-import { environment } from 'src/environments/environment';
+import { DialogModule } from "primeng/dialog";
+import {ProgressBarModule} from 'primeng/progressbar';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
-    AppComponent
-  ],
+    AppComponent,
+      SigninComponent
+   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    AngularFirestoreModule
+    FormsModule,
+    BrowserAnimationsModule,
+    CalendarModule,
+    ButtonModule,
+    ScrollPanelModule,
+    SplitterModule,
+    FieldsetModule,
+    TimelineModule,
+    CardModule,
+    DialogModule,
+    ProgressBarModule,
+    SidebarModule,
+    TabViewModule,
+    ReactiveFormsModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]
