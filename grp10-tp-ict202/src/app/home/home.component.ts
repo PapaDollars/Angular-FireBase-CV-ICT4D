@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from './../firebase.service';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import { Cv } from './appJSON';
@@ -67,27 +68,31 @@ export class HomeComponent implements OnInit {
 form: FormGroup ;
 color = 'cyan';
 
-constructor(private formBuilder: FormBuilder) {
+constructor(private formBuilder: FormBuilder, public FireS : FirebaseService) {
   this.form = formBuilder.group({
     theme: this.color
   })
+
+
+
 
   this.form.valueChanges.subscribe(data => {
     this.color = data.theme
     console.log('Form changes', data)
   })
 }
+@Output()  isLogout = new EventEmitter<void>()
 
-disconnect(){
-  
-}
-
-  ngOnInit() {
+  ngOnInit():void {
     localStorage.setItem("cv",JSON.stringify(this.cv));
     let get = localStorage.getItem(JSON.parse("cv"));
     console.log(get);
     console.log();
-
   }
 
+  logout(){
+    //  localStorage.removeItem("user");
+    this.FireS.logout()
+    this.isLogout.emit()
+    }
 }

@@ -42,4 +42,4 @@
 
 </div>
 
-<app-home *ngIf="isSignedIn" ></app-home>
+<app-home *ngIf="isSignedIn" (isLogout)="handlelogout()" ></app-home>

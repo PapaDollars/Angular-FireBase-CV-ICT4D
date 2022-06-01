@@ -36,4 +36,8 @@ export class SigninComponent implements OnInit {
     this.isSignedIn = true;
   }
 
+  handlelogout(){
+    this.isSignedIn = false
+  }
+
 }
