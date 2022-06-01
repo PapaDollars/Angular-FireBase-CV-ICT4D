@@ -13,7 +13,7 @@ import { PrimeNGConfig } from "primeng/api";
   styleUrls: ['./resume.component.scss']
 })
 export class ResumeComponent implements OnInit {
-
+  email : any ='';
   cv: Cv[] = [
     {
 
@@ -43,11 +43,12 @@ export class ResumeComponent implements OnInit {
   langues!: string [];
 
  ngOnInit(): void {
+   this.email = localStorage.getItem("emails");
    this.primengConfig.ripple = true;
    this.langues = this._langueS.getlangue();
    this.centreI = this._centreI.getcentreInteret();}
-
-
+   
+  
 
   geeks!: boolean;
 

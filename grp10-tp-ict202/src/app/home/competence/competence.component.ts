@@ -34,9 +34,11 @@ export class CompetenceComponent implements OnInit {
   constructor(private primengConfig: PrimeNGConfig, private _competenceservice : CompetenceserviceService) { }
   events!: competemces[];
   value: number = 75.6;
+  email : any ="";
   ngOnInit(): void {
     this.primengConfig.ripple = true;
   this.events = this._competenceservice.getcompetence();
+   this.email =localStorage.getItem("emails");
   }
 
   geeks!: boolean;

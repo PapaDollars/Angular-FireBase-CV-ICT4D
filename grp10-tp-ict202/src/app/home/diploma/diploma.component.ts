@@ -5,7 +5,7 @@ import {PrimeIcons} from 'primeng/api';
 import {TimelineModule} from 'primeng/timeline';
 import { LocationStrategy } from '@angular/common';
 import { DiplomeserviceService } from 'src/app/home/diplomeservice.service';
-
+import { EmailserviceService } from 'src/app/emailservice.service';
 @Component({
   selector: 'app-diploma',
   templateUrl: './diploma.component.html',
@@ -30,13 +30,21 @@ export class DiplomaComponent implements OnInit {
 
 
 
-  constructor(private primengConfig: PrimeNGConfig, private _piplomeservice : DiplomeserviceService) {}
-
+  constructor(private primengConfig: PrimeNGConfig, private _piplomeservice : DiplomeserviceService,public emailrecieve : EmailserviceService) {}
+  email : string ="vbvbvbv";
+  emais : any ='';
   events!: any[];
   diplomes! : any[];
   ngOnInit() {
     // let emt : diplome[];
     // localStorage.setItem("Events",JSON.stringify(emt));
+    this.emailrecieve.on<string>().subscribe(
+      data =>{
+        this.email = data;
+       
+      }
+    )
+    this.emais = localStorage.getItem("emails");
     this.primengConfig.ripple = true;
     this.events = this._piplomeservice.getsdips();
 

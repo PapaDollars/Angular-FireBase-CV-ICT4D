@@ -4,6 +4,7 @@ import { PrimeNGConfig } from "primeng/api";
 import {PrimeIcons} from 'primeng/api';
 import {TimelineModule} from 'primeng/timeline';
 import { FormationserviceService } from 'src/app/home/formationservice.service';
+import { AnyMxRecord } from 'dns';
 
 
 
@@ -28,9 +29,11 @@ export class FormationComponent implements OnInit {
 
   constructor(private primengConfig: PrimeNGConfig, private _formationservice : FormationserviceService) { }
   events!: any[];
+  email : any = "";
   ngOnInit(): void {
     this.primengConfig.ripple = true;
     this.events = this._formationservice.getformation();
+    this.email = localStorage.getItem("emails");
   //  this.events = [
   //    {status: 'Ordered', annee: '15/10/2020 10:30', college: 'College s' },
   //    {status: 'Processing', annee: '15/10/2020 14:00',  college: 'College s'},

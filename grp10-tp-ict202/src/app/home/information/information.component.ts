@@ -8,7 +8,7 @@ import { Cv } from './appJSON';
   styleUrls: ['./information.component.scss']
 })
 export class InformationComponent implements OnInit {
-
+  email : any ='';
    public nom : string = "";
    public mail : string = "";
    public numero : string = "";
@@ -131,6 +131,7 @@ export class InformationComponent implements OnInit {
     document.location.reload();
    }
   ngOnInit(): void {
+    this.email = localStorage.getItem("emails");
 
   //  console.log(this.Bnom);
     var noms  = localStorage.getItem("nom");

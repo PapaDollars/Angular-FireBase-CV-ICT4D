@@ -1,5 +1,4 @@
 
-
 <p-dialog header="Diplome" [(visible)]="geeks">
 <input type="text" #College placeholder="Ecole Obtention" /><br />
 <input type="text" #Diplome placeholder="Diplome Obtenu" /><br />
@@ -19,6 +18,7 @@
         <small class="p-text-secondary">{{event.annee}}</small>
         <p>
           {{event.college}}
+          {{emais}}
         </p>
     </ng-template>
     <ng-template pTemplate="opposite" let-event>
@@ -29,3 +29,4 @@
     </ul>
   </p-scrollPanel>
 </p-fieldset>
+

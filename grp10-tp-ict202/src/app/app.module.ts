@@ -32,7 +32,7 @@ import { CompetenceComponent } from './home/competence/competence.component';
 import { FormationComponent } from './home/formation/formation.component';
 import { InformationComponent } from './home/information/information.component';
 import { ResumeComponent } from './home/resume/resume.component';
-
+import { EmailserviceService } from './emailservice.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +42,7 @@ import { ResumeComponent } from './home/resume/resume.component';
       CompetenceComponent,
       FormationComponent,
       InformationComponent,
-      ResumeComponent
+      ResumeComponent,
    ],
   imports: [
     BrowserModule,
@@ -65,7 +65,7 @@ import { ResumeComponent } from './home/resume/resume.component';
     AngularFireDatabaseModule,
     AngularFirestoreModule
   ],
-  providers: [FirebaseService],
+  providers: [FirebaseService,EmailserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
