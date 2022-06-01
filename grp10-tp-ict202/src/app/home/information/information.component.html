@@ -1,0 +1,172 @@
+
+<!-- image -->
+<img src="img.png" alt="" style="width: 180px; height: 180px" />
+
+<p-card>
+  <div>
+    <h3>{{ this.cv[0].details }}</h3>
+  </div>
+  <div class="displayFlex">
+    <input
+      type="text"
+      class="inputBorder"
+      #nom
+      [id]="nom"
+      (click)="boutonNom()"
+      value="{{ cv[0].nom }}"
+    />
+    <button id="Bnom" class="allBouton" (click)="inputNom(nom.value)">
+      OK
+    </button>
+  </div>
+  <div class="displayFlex">
+    <input
+      type="text"
+      class="inputBorder"
+      #mail
+      [id]="mail"
+      (click)="boutonMail()"
+      value="{{ cv[0].mail }}"
+    />
+    <button id="BOuvrirmail" class="allBouton">
+      <a
+        href="mailto:iyadaniel6@gmail.com "
+        target="_blank"
+        class="no-underline hover:underline"
+        >Ouvrir
+      </a>
+    </button>
+    <button id="Bmail" class="allBouton" (click)="inputMail(mail.value)">
+      OK
+    </button>
+  </div>
+  <div class="displayFlex">
+    <input
+      type="text"
+      class="inputBorder"
+      #numero
+      [id]="numero"
+      (click)="boutonNumero()"
+      value="{{ cv[0].numero }}"
+    />
+    <button id="Bnumero" class="allBouton" (click)="inputNumero(numero.value)">
+      OK
+    </button>
+  </div>
+  <div class="displayFlex">
+    <input
+      type="text"
+      class="inputBorder"
+      #ville
+      [id]="ville"
+      (click)="boutonVille()"
+      value="{{ cv[0].ville }}"
+    />
+    <button id="Bville" class="allBouton" (click)="inputVille(ville.value)">
+      OK
+    </button>
+  </div>
+  <div class="displayFlex">
+    <input
+      type="text"
+      class="inputBorder"
+      #nationalite
+      [id]="nationalite"
+      (click)="boutonNationalite()"
+      value="{{ cv[0].nationalite }}"
+    />
+    <button
+      id="Bnationalite"
+      class="allBouton"
+      (click)="inputNationalite(nationalite.value)"
+    >
+      OK
+    </button>
+  </div> </p-card
+><br />
+<div class="icons">
+  <div class="displayFlex">
+    <div (click)="boutonLinkedin()">
+      <i class="pi pi-linkedin pl-8 pr-4" style="font-size: 2rem"></i>
+    </div>
+    <div (click)="boutonStackoverflow()">
+      <i class="pi pi-star pl-4 pr-4" style="font-size: 2rem"></i>
+    </div>
+    <div (click)="boutonGithub()">
+      <i class="pi pi-github pl-4" style="font-size: 2rem"></i>
+    </div>
+  </div>
+
+  <!--linkedin  -->
+  <div class="displayFlex">
+    <input
+      type="text"
+      class="inputBorder allBouton"
+      #linkedin
+      id="linkedin"
+      value="{{ this.cv[0].linkedin }}"
+    />
+    <button id="BOuvrirlinkedin" class="allBouton">
+      <a
+        href="{{ cv[0].linkedin }}"
+        target="_blank"
+        class="no-underline hover:underline"
+        >Ouvrir
+      </a>
+    </button>
+    <button
+      id="Blinkedin"
+      class="allBouton"
+      (click)="inputLinkedin(linkedin.value)"
+    >
+      OK
+    </button>
+  </div>
+  <!--stackoverflow  -->
+  <div class="displayFlex">
+    <input
+      type="text"
+      class="inputBorder allBouton"
+      #stackoverflow
+      id="stackoverflow"
+      value="{{ this.cv[0].stackoverflow }}"
+    />
+    <button id="BOuvrirstackoverflow" class="allBouton">
+      <a
+        href="{{ cv[0].stackoverflow }}"
+        target="_blank"
+        class="no-underline hover:underline"
+        >Ouvrir
+      </a>
+    </button>
+    <button
+      id="Bstackoverflow"
+      class="allBouton"
+      (click)="inputStackoverflow(stackoverflow.value)"
+    >
+      OK
+    </button>
+  </div>
+  <!-- github -->
+  <div class="displayFlex">
+    <input
+      type="text"
+      class="inputBorder allBouton"
+      #github
+      id="github"
+      value="{{ this.cv[0].github }}"
+    />
+    <button id="BOuvrirgithub" class="allBouton">
+      <a
+        href="{{ cv[0].github }}"
+        target="_blank"
+        class="no-underline hover:underline"
+        >Ouvrir
+      </a>
+    </button>
+    <button id="Bgithub" class="allBouton" (click)="inputGithub(github.value)">
+      OK
+    </button>
+  </div>
+  <!--  -->
+</div>

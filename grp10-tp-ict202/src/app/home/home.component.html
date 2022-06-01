@@ -1,2 +1,112 @@
-<p>home works!</p>
-<button (click)="logout">logout</button>
+
+<p-tabView>
+
+  <p-tabPanel header="Details Personnels">
+    <div class="grid bg-primary">
+      <div class="col-12 md:col-12 lg:col-12 sm:flex-nowrap">
+        <p-card [style]="{ background: 'rgb(159, 172, 255)' }">
+          <app-information></app-information>
+        </p-card>
+      </div>
+    </div>
+  </p-tabPanel>
+
+  <p-tabPanel header="Resumes">
+    <div class="grid bg-primary">
+      <div class="col-12 md:col-12 lg:col-12 sm:flex-nowrap">
+        <p-card [style]="{ background: 'rgb(159, 172, 255)' }">
+          <app-resume></app-resume>
+        </p-card>
+      </div>
+    </div>
+  </p-tabPanel>
+
+  <p-tabPanel header="Diplomes">
+    <div class="grid bg-primary">
+      <div class="col-12 md:col-12 lg:col-12 sm:flex-nowrap">
+        <p-card [style]="{ background: 'rgb(159, 172, 255)' }">
+          <app-diploma></app-diploma>
+        </p-card>
+      </div>
+    </div>
+  </p-tabPanel>
+
+  <p-tabPanel header="Formations">
+    <div class="grid bg-primary">
+      <div class="col-12 md:col-12 lg:col-12 sm:flex-nowrap">
+        <p-card [style]="{ background: 'rgb(159, 172, 255)' }">
+          <app-formation></app-formation>
+        </p-card>
+      </div>
+    </div>
+  </p-tabPanel>
+
+  <p-tabPanel header="Competences">
+    <div class="grid bg-primary">
+      <div class="col-12 md:col-12 lg:col-12 sm:flex-nowrap">
+        <p-card [style]="{ background: 'rgb(159, 172, 255)' }">
+          <app-competence></app-competence>
+        </p-card>
+      </div>
+    </div>
+  </p-tabPanel>
+
+  <p-tabPanel header="CV ">
+    <div [style.background]="color" class="grid">
+      <div class="col-12 md:col-6 lg:col-3 sm:flex-nowrap">
+        <p-card >
+          <app-information></app-information>
+
+          <br />
+
+          <app-resume></app-resume>
+        </p-card>
+      </div>
+      <div class="col-12 md:col-6 lg:col-9" X>
+        <p-card [ngStyle]="{ background: color }">
+          <div class="p-2">
+            <app-diploma></app-diploma>
+
+            <br />
+
+            <app-formation></app-formation>
+
+            <br />
+
+            <app-competence></app-competence>
+          </div>
+        </p-card>
+      </div>
+    </div>
+  </p-tabPanel>
+
+  <p-tabPanel header="Themes">
+
+    <div>
+      <form [formGroup]="form">
+        <label for="color"></label>
+        <input type="color" name="color" formControlName="theme" />
+      </form>
+    </div>
+
+  </p-tabPanel>
+
+  <p-tabPanel header="Disconnect">
+
+    <div>
+      <p-button
+        type="text"
+        (click)="disconnect()"
+        label="Disconnected"
+      ></p-button>
+    </div>
+
+  </p-tabPanel>
+
+</p-tabView>
+
+<div class="grid copyright">
+  <div class="col-12 md:col-6 lg:col-9">
+    <div id="copyright">{{ this.cv[0].copyright }}</div>
+  </div>
+</div>

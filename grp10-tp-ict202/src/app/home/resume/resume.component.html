@@ -1,0 +1,55 @@
+<p-dialog header="langue" [(visible)]="geeks">
+  <input type="text" #langue placeholder="Entrez Votre Competence" /><br />
+  <button (click)=" getlangue(langue.value)">Valider</button>
+  </p-dialog>
+
+  <p-dialog header="centreInteret" [(visible)]="geeks1">
+    <input type="text" #centre placeholder="Entrez Votre Competence" /><br />
+    <button (click)=" getcentre(centre.value)">Valider</button>
+    </p-dialog>
+
+<div class="summaty">
+  <p-card>
+    <div>
+      <h3>{{ this.cv[0].resume }}</h3>
+    </div>
+    <div
+      class="overflow-hidden text-overflow-ellipsis"
+      [style]="{ width: '400px' }"
+    >
+      {{ this.cv[0].contenuResume }}
+  </div>
+    <div
+    class="overflow-hidden text-overflow-ellipsis contenuResume2"
+    [style]="{ width: '400px' }" id="contenuResume2"
+  >
+    {{ this.cv[0].contenuResume2 }}
+  </div>
+  <p style="color:blue"  (click)="plus()" id="plus">Plus...</p>
+  </p-card>
+</div>
+<p-fieldset [transitionOptions]="'1ms'">
+  <ng-template pTemplate="header" [toggleable]="true">
+  
+    <p-button (click)="gfg()"  label="{{this.cv[0].langue }}"></p-button>  
+  </ng-template>
+  <p-scrollPanel [style]="{ width: '100%', height: '80px' }">
+    <ul type="square" *ngFor="let lan of langues">
+        <li>{{lan}}</li>
+    </ul>
+  </p-scrollPanel>
+</p-fieldset> 
+
+<p-fieldset [transitionOptions]="'1ms'">
+  <ng-template pTemplate="header" [toggleable]="true">
+    <p-button (click)="gfg1()" label="{{this.cv[0].centreInteret }}"></p-button>
+    
+  </ng-template>
+  <p-scrollPanel [style]="{ width: '100%', height: '80px' }">
+    <ul class="list-disc" *ngFor="let c of centreI">
+      <li>
+        {{c}}
+        </li>
+    </ul>
+  </p-scrollPanel>
+</p-fieldset>

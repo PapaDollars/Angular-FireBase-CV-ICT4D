@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../firebase.service';
-import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-signin',
@@ -13,9 +12,15 @@ export class SigninComponent implements OnInit {
   email : string = "";
   password : string = "";
   isSignedIn = false
+  public isConnection = true
+  isRegister = true
   ngOnInit() {
     if(localStorage.getItem("user")!= null)
-     this.isSignedIn = true
+     {
+      this.isSignedIn = true
+      this.isConnection = false
+      this.isRegister = false
+     }
      else
      this.isSignedIn = false
   }
@@ -30,13 +35,5 @@ export class SigninComponent implements OnInit {
     if(this.firebaseservice.isloggedIn)
     this.isSignedIn = true;
   }
-
-   handlelogout()
-   {
-   this.isSignedIn = false; 
-   }
-
-
-  
 
 }

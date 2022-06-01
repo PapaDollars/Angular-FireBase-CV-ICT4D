@@ -3,7 +3,7 @@
   <div class="card">
     <p-tabView>
       <!-- sign in -->
-      <p-tabPanel header="Sign In" *ngIf="isSignedIn"><br>
+      <p-tabPanel header="Sign In" *ngIf="isConnection"><br>
         <h1>Connection</h1><br>
         <span class="p-float-label">
           <input id="float-input"   [(ngModel)]="email"  pInputText>
@@ -18,7 +18,7 @@
         </div>
       </p-tabPanel>
       <!-- sign up -->
-      <p-tabPanel header="Sign Up" *ngIf="isSignedIn"><br>
+      <p-tabPanel header="Sign Up" *ngIf="isRegister"><br>
         <h1>Registration</h1><br>
         <span class="p-float-label">
           <input id="float-input" type="text" pInputText>
@@ -42,4 +42,4 @@
 
 </div>
 
-<app-home *ngIf="isSignedIn" (isLogout)="handlelogout()"></app-home>
+<app-home *ngIf="isSignedIn" ></app-home>

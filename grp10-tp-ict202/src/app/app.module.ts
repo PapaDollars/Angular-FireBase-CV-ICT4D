@@ -27,12 +27,22 @@ import {ProgressBarModule} from 'primeng/progressbar';
 import { SigninComponent } from './signin/signin.component';
 import { environment } from 'src/environments/environment';
 import { HomeComponent } from './home/home.component';
+import { DiplomaComponent } from './home/diploma/diploma.component';
+import { CompetenceComponent } from './home/competence/competence.component';
+import { FormationComponent } from './home/formation/formation.component';
+import { InformationComponent } from './home/information/information.component';
+import { ResumeComponent } from './home/resume/resume.component';
 
 @NgModule({
   declarations: [
     AppComponent,
       SigninComponent,
-      HomeComponent
+      HomeComponent,
+      DiplomaComponent,
+      CompetenceComponent,
+      FormationComponent,
+      InformationComponent,
+      ResumeComponent
    ],
   imports: [
     BrowserModule,
