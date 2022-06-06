@@ -25,6 +25,8 @@ import { AppComponent } from './app.component';
 import { DialogModule } from "primeng/dialog";
 import {ProgressBarModule} from 'primeng/progressbar';
 import { SigninComponent } from './signin/signin.component';
+import {TemplatesComponent} from './home/templates/templates.component';
+import {Template1Component} from './home/templates/template1/template1.component';
 import { environment } from 'src/environments/environment';
 import { HomeComponent } from './home/home.component';
 import { DiplomaComponent } from './home/diploma/diploma.component';
@@ -43,6 +45,8 @@ import { EmailserviceService } from './emailservice.service';
       FormationComponent,
       InformationComponent,
       ResumeComponent,
+      TemplatesComponent,
+      Template1Component,
    ],
   imports: [
     BrowserModule,
