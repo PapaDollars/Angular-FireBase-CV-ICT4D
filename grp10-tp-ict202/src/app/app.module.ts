@@ -25,7 +25,6 @@ import { AppComponent } from './app.component';
 import { DialogModule } from "primeng/dialog";
 import {ProgressBarModule} from 'primeng/progressbar';
 import { SigninComponent } from './signin/signin.component';
-<<<<<<< Updated upstream
 import {TemplatesComponent} from './home/templates/templates.component';
 import {Template1Component} from './home/templates/template1/template1.component';
 import { environment } from 'src/environments/environment';
@@ -36,15 +35,10 @@ import { FormationComponent } from './home/formation/formation.component';
 import { InformationComponent } from './home/information/information.component';
 import { ResumeComponent } from './home/resume/resume.component';
 import { EmailserviceService } from './emailservice.service';
-=======
-import { DiplomaComponent } from './diploma/diploma.component';
-
->>>>>>> Stashed changes
 @NgModule({
   declarations: [
     AppComponent,
       SigninComponent,
-<<<<<<< Updated upstream
       HomeComponent,
       DiplomaComponent,
       CompetenceComponent,
@@ -53,9 +47,6 @@ import { DiplomaComponent } from './diploma/diploma.component';
       ResumeComponent,
       TemplatesComponent,
       Template1Component,
-=======
-      DiplomaComponent
->>>>>>> Stashed changes
    ],
   imports: [
     BrowserModule,
