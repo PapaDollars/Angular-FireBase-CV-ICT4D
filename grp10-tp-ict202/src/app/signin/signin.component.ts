@@ -30,7 +30,7 @@ export class SigninComponent implements OnInit {
     await this.firebaseservice.signup(this.email,this.password)
     if(this.firebaseservice.isloggedIn)
     this.isSignedIn = true;
-    
+    localStorage.setItem("emails",this.email);
     
 
   }

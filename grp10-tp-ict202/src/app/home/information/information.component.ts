@@ -1,5 +1,6 @@
 import { style } from '@angular/animations';
 import { Component, getNgModuleById, Input, OnInit } from '@angular/core';
+import { window } from 'rxjs';
 import { Cv } from './appJSON';
 
 @Component({

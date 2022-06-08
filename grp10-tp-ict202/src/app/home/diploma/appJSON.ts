@@ -9,16 +9,21 @@ export class Cv {
 
 }
 export class diplome {
-  public diploma: string;
+  public diplome: string;
   public college: string;
   public annee: string;
+  public mail : string;
 
-  constructor(Diplome :string, college : string, annee :string)
+  constructor(Diplome :string, college : string, annee :string ,mail : string)
   {
-    this.diploma = Diplome;
+    this.diplome = Diplome;
     this.college = college;
     this.annee = annee;
+    this.mail = mail
   }
 
+
+  
   
 }
+

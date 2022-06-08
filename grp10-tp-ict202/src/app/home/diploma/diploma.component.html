@@ -17,16 +17,25 @@
     <ng-template pTemplate="content" let-event>
         <small class="p-text-secondary">{{event.annee}}</small>
         <p>
+           <!-- <ul *ngFor ="let item of diplome">
+          <li>{{item.diplome}}</li>
+        </ul> -->
           {{event.college}}
           {{emais}}
+          
         </p>
+       
     </ng-template>
     <ng-template pTemplate="opposite" let-event>
         {{event.diploma}}
     </ng-template>
-    
+   
 </p-timeline>
     </ul>
   </p-scrollPanel>
 </p-fieldset>
+
+
+
+
 
