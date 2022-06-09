@@ -35,6 +35,13 @@ export class InformationComponent implements OnInit {
   ];
 
   bannerImg : any;
+  events!: any[];
+
+  geeks!: boolean;
+
+  gfg() {
+    this.geeks = true;
+  }
 
   boutonNom(){
     let Bnom : any;

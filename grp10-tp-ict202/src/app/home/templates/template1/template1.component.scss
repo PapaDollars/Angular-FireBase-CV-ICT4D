@@ -1,19 +1,16 @@
-#bg-color1{
-  background-color: rgb(0, 0, 0);
+.bg_color2{
+  background-color: rgb(222, 221, 221);
 }
-
-#bg-color2{
-  margin: 5% -1.5% 0%  -1.5%;
-  /* padding: 10%; */
-  background-color: rgb(164, 198, 227);
+.bg_color1{
+  background-color: rgb(208, 208, 208);
 }
-.left{
-  padding-top: -6%;
+.padding{
+  float: center ;
 }
-.overflow
-{
-  overflow-y: scroll;
-  overflow-x:hidden ;
-  width: 30%;
-  height: auto;
+.profil{
+  margin:25% 10% 10% 10%;
+  float: center ;
+}
+.padding_obj{
+  padding-top: 18%;
 }

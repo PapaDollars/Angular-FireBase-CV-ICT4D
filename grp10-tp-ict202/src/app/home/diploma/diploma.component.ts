@@ -34,15 +34,15 @@ export class DiplomaComponent implements OnInit {
   events!: any[];
   diplomes! : [];
   ngOnInit() {
-    
+
    this.cruds.get_diplome().subscribe(data  =>{
       // console.log(data[0].mail);
-      this.events =data;   
+      this.events =data;
       console.log(data) ;
     })
-      
-    
-    
+
+
+
     // let emt : diplome[];
     // localStorage.setItem("Events",JSON.stringify(emt));
 
@@ -64,14 +64,13 @@ export class DiplomaComponent implements OnInit {
 
 
   }
+
    geeks!: boolean;
-
-
 
   gfg() {
     this.geeks = true;
   }
-   
+
   deletediplome(diplome :any)
   {
     this.cruds.deletediplome(diplome.id);
@@ -91,14 +90,14 @@ export class DiplomaComponent implements OnInit {
     Record['college']=Collège;
     Record['diplome']=Diplome;
     Record['annee']=Annee;
-    
+
     this.cruds.create_Diplome(Record).then(res =>{
       console.log(res);
       alert("diplome ajouter ");
     }).catch(error =>{
       console.log(error);
     });
-    
+
 
   }
 
