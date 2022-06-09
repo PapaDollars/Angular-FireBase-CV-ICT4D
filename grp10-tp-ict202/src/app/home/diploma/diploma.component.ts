@@ -32,14 +32,13 @@ export class DiplomaComponent implements OnInit {
   email : string ="vbvbvbv";
   emais : any ='';
   events!: any[];
-  diplome: diplome[]=[];
   diplomes! : [];
   ngOnInit() {
     
-    this.cruds.get_diplome().subscribe(data =>{
+   this.cruds.get_diplome().subscribe(data  =>{
       // console.log(data[0].mail);
       this.events =data;   
-      console.log(this.diplome)  ;
+      console.log(data) ;
     })
       
     
@@ -67,9 +66,18 @@ export class DiplomaComponent implements OnInit {
   }
    geeks!: boolean;
 
+
+
   gfg() {
     this.geeks = true;
   }
+   
+  deletediplome(diplome :any)
+  {
+    this.cruds.deletediplome(diplome.id);
+    alert(diplome.id);
+  }
+
 
   getdiplome(Collège : any,Diplome : any,Annee : any)
   {

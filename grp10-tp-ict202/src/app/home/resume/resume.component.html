@@ -1,6 +1,7 @@
 <p-dialog header="langue" [(visible)]="geeks">
   <input type="text" #langue placeholder="Entrez Votre Competence" /><br />
-  <button (click)=" getlangue(langue.value)">Valider</button>
+  <input type="text" #niveau placeholder="Entrez Votre Competence" /><br />
+  <button (click)=" getlangue(langue.value,niveau.value)">Valider</button>
   </p-dialog>
 
   <p-dialog header="centreInteret" [(visible)]="geeks1">
@@ -35,7 +36,9 @@
   </ng-template>
   <p-scrollPanel [style]="{ width: '100%', height: '80px' }">
     <ul type="square" *ngFor="let lan of langues">
-        <li>{{lan}}</li>
+        <li>{{lan.nom}}</li>
+        <p-progressBar [value]=lan.niveau></p-progressBar>
+        <button pButton type="button" label="Suprrimer" class="p-button-danger" (click)="deleteLangues(lan)"></button>
     </ul>
   </p-scrollPanel>
 </p-fieldset> 
@@ -48,8 +51,10 @@
   <p-scrollPanel [style]="{ width: '100%', height: '80px' }">
     <ul class="list-disc" *ngFor="let c of centreI">
       <li>
-        {{c}}
+        {{c.nom}}<br>
+        <button pButton type="button" label="Suprrimer" class="p-button-danger" (click)="deleteLoisir(c)"></button>
         </li>
+
     </ul>
   </p-scrollPanel>
 </p-fieldset>

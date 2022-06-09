@@ -1,11 +1,12 @@
 
 
 <p-dialog header="Diplome" [(visible)]="geeks">
-  <input type="text" #Lieu placeholder="Lieu" /><br />
-  <input type="text" #Andebut placeholder="Annee de debut" /><br />
-  <input type="text" #AnFin placeholder="Anne de fin" /><br>
-  <textarea placeholder="Contenu :" #Content class="txa"></textarea>
-  <button (click)="getdiplome(Lieu.value,Andebut.value,Andebut.value,Content.value)">Valider</button>
+  <input type="text" #titre placeholder="Lieu" /><br />
+  <input type="text" #entreprise placeholder="Entreprise" /><br />
+  <input type="text" #andebut placeholder="Anne de debut" /><br>
+  <input type="text" #anfin placeholder="Anne de fin" /><br>
+  <textarea placeholder="details :" #details class="txa"></textarea>
+  <button (click)="getdiplome(titre.value,entreprise.value,andebut.value,anfin.value,details.value)">Valider</button>
   </p-dialog>
 
 <p-fieldset [transitionOptions]="'1ms'">
@@ -17,13 +18,15 @@
     <div>
       <p-timeline [value]="events">
         <ng-template pTemplate="content" let-event>
-            <small class="p-text-secondary">{{event.andebut}} --- {{event.anfin}}</small>
+            <small class="p-text-secondary">{{event.periode}}</small>
             <p>
-              {{event.Text}}
+              {{event.details}}<br>
+              {{event.entreprise}}
             </p>
+            <button pButton type="button" label="Suprrimer" class="p-button-danger" (click)="deleteexperience(event)"></button>
         </ng-template>
         <ng-template pTemplate="opposite" let-event>
-            {{event.lieu}}
+            {{event.titre}}
         </ng-template>
         
     </p-timeline>

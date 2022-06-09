@@ -8,17 +8,20 @@ export class Cv {
 }
 
 export class formation {
-  public lieu!: string;
-  public andebut!: string;
-  public anfin!: string;
-  public Text!: string;
+  public titre!: string;
+  public entreprise!: string;
+  public peroide!: string;
+  public details!: string;
+  public mail : string;
+  
 
-  constructor(Lieu :string, Andebut : string, Anfin :string,text : string)
+  constructor(titre :string, entreprise : string, periode :string,details : string,mail :string)
   {
-    this.lieu = Lieu;
-    this.andebut = Andebut;
-    this.anfin = Anfin;
-    this.Text = text;
+    this.mail = mail
+    this.titre = titre;
+    this.peroide = entreprise;
+    this.details = periode;
+    this.entreprise = details;
   }
 
 }

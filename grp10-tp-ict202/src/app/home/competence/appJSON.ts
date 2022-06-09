@@ -15,13 +15,14 @@ export class Cv {
 }
 
 export class competemces{
-
-  public Comptnce !: string;
-  public Pourcentage !:  number;
-  constructor(comptnce :string , pourcentage :number)
+ public mail !: string
+  public nom !: string;
+  public niveau !:  number;
+  constructor(comptnce :string , pourcentage :number, mail:string)
   {
-      this.Comptnce =comptnce;
-      this.Pourcentage = pourcentage;
+      this.mail = mail; 
+      this.nom =comptnce;
+      this.niveau = pourcentage;
   }
 }
 

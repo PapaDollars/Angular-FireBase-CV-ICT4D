@@ -11,5 +11,31 @@ export class Cv {
   centre1!: string;
   centre2!: string;
 
+
+
+}
+
+
+export class langue {
+  public mail! : string;
+  public nom! : string
+  public niveau! : string;
+
+constructor(mail : string,nom : string, niveau : string) {
+   this.mail=mail;
+   this.nom =nom;
+   this.niveau =niveau;
+}
+}
+
+export class loisirs{
+  public mail! : string;
+  public nom! : string;
+
+  constructor(mail : string,nom:string)
+  {
+     this.mail = mail;
+     this.nom = nom;
+  }
 }
 
