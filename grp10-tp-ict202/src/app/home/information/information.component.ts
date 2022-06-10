@@ -2,7 +2,6 @@ import { style } from '@angular/animations';
 import { Component, getNgModuleById, Input, OnInit } from '@angular/core';
 import { window } from 'rxjs';
 import { Cv } from './appJSON';
-import { FirebaseService } from 'src/app/firebase.service';
 
 @Component({
   selector: 'app-information',
@@ -12,39 +11,113 @@ import { FirebaseService } from 'src/app/firebase.service';
 export class InformationComponent implements OnInit {
   email : any ='';
    public nom : string = "";
+   public rue : string = "";
+   public prenom : string = "";
    public mail : string = "";
    public numero : string = "";
    public ville : string = "";
-   public nationalite : string = "";
+   public dateNaiss : string = "";
+   public occupation : string = "";
    public linkedin : string = "";
    public stackoverflow : string = "";
    public github : string = "";
    public colorBlue : string ="blue";
   //  public colorRed : string ="red";
-  constructor(public cruds : FirebaseService)
-  {
 
-  }
   cv: Cv[] = [
     { details: "Details Personnels",
-      nom: "Iya boulamdi daniel",
+      contact : "Contacts",
+      addresse : "Addresse Mail",
+      nom: "Iya boulamdi ",
+      prenom: "Daniel",
       mail: "iyadaniel6gmail.com",
       numero: "+237696971951",
       ville: "Yaounde",
-      nationalite: "Camerounais",
+      rue: "Rue de la paix",
+      dateNaiss: "11-12-2022",
+      occupation : "occupation",
       linkedin: "https://www.linkedin.com/in/daniel-iya-a29519181/",
       stackoverflow: "https://stackoverflow.com/users/18965791/papa-dollars?tab=profile",
       github: "https://github.com/PapaDollars",
     }
   ];
 
+
   bannerImg : any;
   events!: any[];
 
-  geeks!: boolean;
+  geeksDetails!: boolean;
+  geeksContact!: boolean;
+  geeksMail!: boolean;
 
-  gfg() {
-    this.geeks = true;
+  gfgDetails() {
+    this.geeksDetails = true;
+  }
+
+  gfgContact() {
+    this.geeksContact = true;
+  }
+
+  gfgMail() {
+    this.geeksMail = true;
+  }
+
+  getdetails(nom:any, prenom: any, lieuNaiss: any, dateNaiss: any, rue: any, occupation: any)
+  {
+    let Record ={
+      'nom' :'',
+      'prenom' : '',
+      'lieuNaiss' : '',
+      'dateNaiss'  : '',
+      'rue'  : '',
+      'occupation'  : ''
+    };
+    Record['nom']=nom;
+    Record['prenom']=prenom;
+    Record['lieuNaiss']=lieuNaiss;
+    Record['dateNaiss']=dateNaiss;
+    Record['rue']=rue;
+    Record['occupation']=occupation;
+
+    // this.cruds.create_Details(Record).then(res =>{
+    //   console.log(res);
+      alert("Information ajouter ");
+    // }).catch(error =>{
+    //   console.log(error);
+    // });
+
+  }
+
+  getcontact(contact:any)
+  {
+    let Record ={
+      'contact' :''
+    };
+    Record['contact']=contact;
+
+    // this.cruds.create_Contact(Record).then(res =>{
+    //   console.log(res);
+      alert("Contacts ajouter ");
+    // }).catch(error =>{
+    //   console.log(error);
+    // });
+
+  }
+
+  getmail(mail:any)
+  {
+    let Record ={
+      'mail' :''
+    };
+    Record['mail']=mail;
+
+    // this.cruds.create_Contact(Record).then(res =>{
+    //   console.log(res);
+      alert("Mail ajouter ");
+    // }).catch(error =>{
+    //   console.log(error);
+    // });
+
   }
 
   boutonNom(){
@@ -52,28 +125,43 @@ export class InformationComponent implements OnInit {
     Bnom = document.getElementById("Bnom");
     Bnom.style.display = "block";
   }
+  boutonPrenom(){
+    let Bprenom : any;
+    Bprenom = document.getElementById("Bprenom");
+    Bprenom.style.display = "block";
+  }
+  boutonRue(){
+    let Brue : any;
+    Brue = document.getElementById("Brue");
+    Brue.style.display = "block";
+  }
   boutonMail(){
-    let Bnom : any;
+    let Bmail : any;
     let BOuvrirmail : any;
-    Bnom = document.getElementById("Bmail");
-    Bnom.style.display = "block";
+    Bmail = document.getElementById("Bmail");
+    Bmail.style.display = "block";
     BOuvrirmail = document.getElementById("BOuvrirmail");
     BOuvrirmail.style.display = "block";
   }
   boutonNumero(){
-    let Bnom : any;
-    Bnom = document.getElementById("Bnumero");
-    Bnom.style.display = "block";
+    let Bnumero : any;
+    Bnumero = document.getElementById("Bnumero");
+    Bnumero.style.display = "block";
   }
   boutonVille(){
     let Bville : any;
     Bville = document.getElementById("Bville");
     Bville.style.display = "block";
   }
-  boutonNationalite(){
-    let Bnom : any;
-    Bnom = document.getElementById("Bnationalite");
-    Bnom.style.display = "block";
+  boutonDateNaiss(){
+    let BdateNaiss : any;
+    BdateNaiss = document.getElementById("BdateNaiss");
+    BdateNaiss.style.display = "block";
+  }
+  boutonOccupation(){
+    let Boccupation : any;
+    Boccupation = document.getElementById("Boccupation");
+    Boccupation.style.display = "block";
   }
   boutonLinkedin(){
     let linkedin : any;
@@ -113,6 +201,14 @@ export class InformationComponent implements OnInit {
     localStorage.setItem("nom",value);
     document.location.reload();
    }
+   inputRue(value:string){
+    localStorage.setItem("rue",value);
+    document.location.reload();
+   }
+   inputPrenom(value:string){
+    localStorage.setItem("prenom",value);
+    document.location.reload();
+   }
   inputMail(value:string){
     localStorage.setItem("mail",value);
     document.location.reload();
@@ -125,8 +221,12 @@ export class InformationComponent implements OnInit {
     localStorage.setItem("ville",value);
     document.location.reload();
    }
-  inputNationalite(value:string){
-    localStorage.setItem("nationalite",value);
+   inputDateNaiss(value:string){
+    localStorage.setItem("dateNaiss",value);
+    document.location.reload();
+   }
+   inputOccupation(value:string){
+    localStorage.setItem("occupation",value);
     document.location.reload();
    }
    inputLinkedin(value:string){
@@ -142,26 +242,32 @@ export class InformationComponent implements OnInit {
     localStorage.setItem("github",value);
     document.location.reload();
    }
-   info! : any[];
   ngOnInit(): void {
     this.email = localStorage.getItem("emails");
-    this.cruds.get_lamgues().subscribe(data  =>{
-      // console.log(data[0].mail);
-      this.info =data;   
-      console.log(data) ;
-    })
+
   //  console.log(this.Bnom);
     var noms  = localStorage.getItem("nom");
+    var prenoms  = localStorage.getItem("prenom");
+    var rues  = localStorage.getItem("rue");
     var mails  = localStorage.getItem("mail");
     var numeros  = localStorage.getItem("nnumeroom");
     var villes  = localStorage.getItem("ville");
-    var nationalites  = localStorage.getItem("nationalite");
+    var dateNaisss  = localStorage.getItem("dateNaiss");
+    var occupations  = localStorage.getItem("occupation");
     var linkedins  = localStorage.getItem("linkedin");
     var stackoverflows  = localStorage.getItem("stackoverflow");
     var githubs  = localStorage.getItem("github");
     if(noms!=null)
       {
         this.cv[0].nom = noms;
+      }
+      if(prenoms!=null)
+      {
+        this.cv[0].prenom = prenoms;
+      }
+      if(rues!=null)
+      {
+        this.cv[0].rue = rues;
       }
       if( mails!=null)
       {
@@ -175,9 +281,13 @@ export class InformationComponent implements OnInit {
       {
         this.cv[0].ville = villes;
       }
-      if(nationalites!=null)
+      if(dateNaisss!=null)
       {
-        this.cv[0].nationalite = nationalites;
+        this.cv[0].dateNaiss = dateNaisss;
+      }
+      if(occupations!=null)
+      {
+        this.cv[0].occupation = occupations;
       }
       if(linkedins!=null)
       {

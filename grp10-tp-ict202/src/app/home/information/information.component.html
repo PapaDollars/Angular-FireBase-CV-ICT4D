@@ -1,88 +1,73 @@
-
 <!-- image -->
 <img src="./img.png" alt="" style="width: 180px; height: 180px" />
 
+<!-- Modals INFORMATION -->
+<p-dialog header="Details Personnels" [(visible)]="geeksDetails">
+  <input type="text" #nom placeholder="Nom" /><br />
+  <input type="text" #prenom placeholder="Prenom" /><br />
+  <input type="text" #lieuNaiss placeholder="Lieu de Naissance" /><br>
+  <input type="text" #dateNaiss placeholder="Date de Naissance" /><br>
+  <input type="text" #rue placeholder="Addresse de residence" /><br>
+  <input type="text" #occupation placeholder="Occupation" /><br>
+  <button
+    (click)="getdetails(nom.value,prenom.value,lieuNaiss.value,dateNaiss.value,rue.value,occupation.value)">Valider</button>
+</p-dialog>
+
+<!-- Modals Contact -->
+<p-dialog header="Contacts" [(visible)]="geeksContact">
+  <input type="text" #contact placeholder="69697**51" /><br />
+  <button (click)="getcontact(contact.value)">Valider</button>
+</p-dialog>
+
+<!-- Modals Mail -->
+<p-dialog header="Addresse Mail" [(visible)]="geeksMail">
+  <input type="text" #mail placeholder="Example@gmail.com" /><br />
+  <button (click)="getmail(mail.value)">Valider</button>
+</p-dialog>
+
+<!-- details personnel -->
 <p-fieldset [transitionOptions]="'1ms'">
-  <ng-template pTemplate="header"
-  [toggleable]="true">
-  <p-button (click)="gfg()" label="{{this.cv[0].details }}"></p-button>
+  <ng-template pTemplate="header" [toggleable]="true">
+    <p-button (click)="gfgDetails()" label="{{this.cv[0].details }}"></p-button>
   </ng-template>
   <p-scrollPanel [style]="{ width: '100%', height: '150px' }">
 
     <div class="displayFlex">
-      <input
-        type="text"
-        class="inputBorder"
-        #nom
-        [id]="nom"
-        (click)="boutonNom()"
-        value="{{ cv[0].nom }}"
-      />
+      <input type="text" class="inputBorder" #nom [id]="nom" (click)="boutonNom()" value="{{ cv[0].nom }}" />
       <button id="Bnom" class="allBouton" (click)="inputNom(nom.value)">
         OK
       </button>
     </div>
     <div class="displayFlex">
-      <input
-        type="text"
-        class="inputBorder"
-        #mail
-        [id]="mail"
-        (click)="boutonMail()"
-        value="{{ cv[0].mail }}"
-      />
-      <button id="BOuvrirmail" class="allBouton">
-        <a
-          href="mailto:iyadaniel6@gmail.com "
-          target="_blank"
-          class="no-underline hover:underline"
-          >Ouvrir
-        </a>
-      </button>
-      <button id="Bmail" class="allBouton" (click)="inputMail(mail.value)">
+      <input type="text" class="inputBorder" #prenom [id]="prenom" (click)="boutonPrenom()"
+        value="{{ cv[0].prenom }}" />
+      <button id="Bprenom" class="allBouton" (click)="inputPrenom(prenom.value)">
         OK
       </button>
     </div>
     <div class="displayFlex">
-      <input
-        type="text"
-        class="inputBorder"
-        #numero
-        [id]="numero"
-        (click)="boutonNumero()"
-        value="{{ cv[0].numero }}"
-      />
-      <button id="Bnumero" class="allBouton" (click)="inputNumero(numero.value)">
-        OK
-      </button>
-    </div>
-    <div class="displayFlex">
-      <input
-        type="text"
-        class="inputBorder"
-        #ville
-        [id]="ville"
-        (click)="boutonVille()"
-        value="{{ cv[0].ville }}"
-      />
+      <input type="text" class="inputBorder" #ville [id]="ville" (click)="boutonVille()" value="{{ cv[0].ville }}" />
       <button id="Bville" class="allBouton" (click)="inputVille(ville.value)">
         OK
       </button>
     </div>
     <div class="displayFlex">
-      <input
-        type="text"
-        class="inputBorder"
-        #nationalite
-        [id]="nationalite"
-        (click)="boutonNationalite()"
-        value="{{ cv[0].nationalite }}"
-      />
-      <button
-        id="Bnationalite"
-        class="allBouton"
-        (click)="inputNationalite(nationalite.value)"
-      >
+      <input type="text" class="inputBorder" #dateNaiss [id]="dateNaiss" (click)="boutonDateNaiss()"
+        value="{{ cv[0].dateNaiss }}" />
+      <button id="BdateNaiss" class="allBouton" (click)="inputDateNaiss(dateNaiss.value)">
+        OK
+      </button>
+    </div>
+    <div class="displayFlex">
+      <input type="text" class="inputBorder" #rue [id]="rue" (click)="boutonRue()" value="{{ cv[0].rue }}" />
+      <button id="Brue" class="allBouton" (click)="inputRue(rue.value)">
+        OK
+      </button>
+    </div>
+    <div class="displayFlex">
+      <input type="text" class="inputBorder" #occupation [id]="occupation" (click)="boutonOccupation()"
+        value="{{ cv[0].occupation }}" />
+      <button id="Bccupation" class="allBouton" (click)="inputOccupation(occupation.value)">
         OK
       </button>
     </div>
@@ -90,6 +75,44 @@
   </p-scrollPanel>
 </p-fieldset>
 
+<!-- contact -->
+<p-fieldset [transitionOptions]="'1ms'">
+  <ng-template pTemplate="header" [toggleable]="true">
+    <p-button (click)="gfgContact()" label="{{this.cv[0].contact }}"></p-button>
+  </ng-template>
+  <p-scrollPanel [style]="{ width: '100%', height: '150px' }">
+
+    <div class="displayFlex">
+      <input type="text" class="inputBorder" #numero [id]="numero" (click)="boutonNumero()"
+        value="{{ cv[0].numero }}" />
+      <button id="Bnumero" class="allBouton" (click)="inputNumero(numero.value)">
+        OK
+      </button>
+    </div>
+
+  </p-scrollPanel>
+</p-fieldset>
+
+<!-- Email -->
+<p-fieldset [transitionOptions]="'1ms'">
+  <ng-template pTemplate="header" [toggleable]="true">
+    <p-button (click)="gfgMail()" label="{{this.cv[0].addresse }}"></p-button>
+  </ng-template>
+  <p-scrollPanel [style]="{ width: '100%', height: '150px' }">
+
+    <div class="displayFlex">
+      <input type="text" class="inputBorder" #mail [id]="mail" (click)="boutonMail()" value="{{ cv[0].mail }}" />
+      <button id="BOuvrirmail" class="allBouton">
+        <a href="mailto:iyadaniel6@gmail.com " target="_blank" class="no-underline hover:underline">Ouvrir
+        </a>
+      </button>
+      <button id="Bmail" class="allBouton" (click)="inputMail(mail.value)">
+        OK
+      </button>
+    </div>
+
+  </p-scrollPanel>
+</p-fieldset>
 
 <!-- <p-card>
  </p-card
@@ -111,26 +134,12 @@
   <!--linkedin  -->
 
   <div class="displayFlex">
-    <input
-      type="text"
-      class="inputBorder allBouton"
-      #linkedin
-      id="linkedin"
-      value="{{ this.cv[0].linkedin }}"
-    />
+    <input type="text" class="inputBorder allBouton" #linkedin id="linkedin" value="{{ this.cv[0].linkedin }}" />
     <button id="BOuvrirlinkedin" class="allBouton">
-      <a
-        href="{{ cv[0].linkedin }}"
-        target="_blank"
-        class="no-underline hover:underline"
-        >Ouvrir
+      <a href="{{ cv[0].linkedin }}" target="_blank" class="no-underline hover:underline">Ouvrir
       </a>
     </button>
-    <button
-      id="Blinkedin"
-      class="allBouton"
-      (click)="inputLinkedin(linkedin.value)"
-    >
+    <button id="Blinkedin" class="allBouton" (click)="inputLinkedin(linkedin.value)">
       OK
     </button>
   </div>
@@ -138,26 +147,13 @@
   <!--stackoverflow  -->
 
   <div class="displayFlex">
-    <input
-      type="text"
-      class="inputBorder allBouton"
-      #stackoverflow
-      id="stackoverflow"
-      value="{{ this.cv[0].stackoverflow }}"
-    />
+    <input type="text" class="inputBorder allBouton" #stackoverflow id="stackoverflow"
+      value="{{ this.cv[0].stackoverflow }}" />
     <button id="BOuvrirstackoverflow" class="allBouton">
-      <a
-        href="{{ cv[0].stackoverflow }}"
-        target="_blank"
-        class="no-underline hover:underline"
-        >Ouvrir
+      <a href="{{ cv[0].stackoverflow }}" target="_blank" class="no-underline hover:underline">Ouvrir
       </a>
     </button>
-    <button
-      id="Bstackoverflow"
-      class="allBouton"
-      (click)="inputStackoverflow(stackoverflow.value)"
-    >
+    <button id="Bstackoverflow" class="allBouton" (click)="inputStackoverflow(stackoverflow.value)">
       OK
     </button>
   </div>
@@ -165,19 +161,9 @@
   <!-- github -->
 
   <div class="displayFlex">
-    <input
-      type="text"
-      class="inputBorder allBouton"
-      #github
-      id="github"
-      value="{{ this.cv[0].github }}"
-    />
+    <input type="text" class="inputBorder allBouton" #github id="github" value="{{ this.cv[0].github }}" />
     <button id="BOuvrirgithub" class="allBouton">
-      <a
-        href="{{ cv[0].github }}"
-        target="_blank"
-        class="no-underline hover:underline"
-        >Ouvrir
+      <a href="{{ cv[0].github }}" target="_blank" class="no-underline hover:underline">Ouvrir
       </a>
     </button>
     <button id="Bgithub" class="allBouton" (click)="inputGithub(github.value)">

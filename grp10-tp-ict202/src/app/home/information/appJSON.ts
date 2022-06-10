@@ -1,10 +1,19 @@
 export class Cv {
   details!: string;
+  contact!: string;
+  addresse!: string;
+
+  dateNaiss!:string;
   nom!: string;
-  mail!: string;
-  numero!: string;
+  rue!: string;
+  prenom!: string;
   ville!: string;
-  nationalite!: string;
+  occupation!: string;
+
+  mail!: string;
+
+  numero!: string;
+
   linkedin!: string;
   stackoverflow!: string;
   github!: string;
