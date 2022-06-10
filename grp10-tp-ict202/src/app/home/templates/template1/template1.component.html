@@ -31,9 +31,22 @@
 
        <div>
          <h5>Langue : </h5>
-         <span>Francais</span><br>
-         <span>Anglais</span>
+         <ul *ngFor="let lan of Langue">
+          <li>
+            Nom : {{lan.nom}}<br>
+            Niveau : {{lan.niveau}}/100
+          </li>
+         </ul>
        </div>
+
+       <div>
+        <h5>Loisirs : </h5>
+        <ul *ngFor="let lor of Loisir">
+          <li>
+            Nom : {{lor.nom}}
+          </li>
+         </ul>
+      </div>
 
       </div>
     </div>
@@ -57,21 +70,37 @@
 
       <div class="pt-3">
         <h5>Doplome</h5>
-        <p>BEPC <br>
-          Probatoire <br>
-          Baccalaureat </p>
+        <ul *ngFor="let dip of Diplome">
+             <li>
+           Diplome : {{dip.diplome}}<br>
+           Ecole : {{dip.college}}<br>
+           Periode : {{dip.annee}}
+             </li>
+        </ul>
       </div>
-
-      <div class="pt-3">
-        <h5>Formation</h5>
-        <p>Formation</p>
-      </div>
-
+     
       <div class="pt-3">
         <h5>Experiences Profionnels</h5>
-        <p>Experiences Profionnels</p>
+        <ul *ngFor="let exp of Experience">
+          <li>
+           Titre : {{exp.titre}}<br>
+           Entreprise :  {{exp.entreprise}}<br>
+           Periode : {{exp.periode}}<br>
+           Details : {{exp.details}}
+          </li>
+        </ul>
       </div>
 
+      <div class="pt-3">
+        <h5>Competence</h5>
+        
+          <ul *ngFor="let comp of Competence">
+            <li>Nom :{{comp.nom}}<br>
+                Valuer :{{comp.niveau}}/100
+              </li>
+          </ul>
+        
+      </div>
     </div>
 
   </div>

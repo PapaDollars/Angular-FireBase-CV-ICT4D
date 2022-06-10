@@ -27,7 +27,7 @@ export class FirebaseService {
     .then(res=>{
       this.isloggedIn =true
       localStorage.setItem("user",JSON.stringify(res.user))
-      document.location.reload();
+          document.location.reload();
     })
   }
 
@@ -38,6 +38,9 @@ export class FirebaseService {
       localStorage.setItem("user",JSON.stringify(res.user))
       document.location.reload();
     })
+
+    
+
   }
 
   logout()
@@ -47,6 +50,11 @@ export class FirebaseService {
     document.location.reload();
     }
   
+    create_information(information : any)
+    {
+      return this.firestoreservice.collection('information').add(information);
+    }
+
     create_Diplome(Reccord : any)
     {
       let mail = <string><unknown>localStorage.getItem('user');
@@ -89,7 +97,20 @@ export class FirebaseService {
       return this.firestoreservice.collection('loisirs').add(Record);
     }
   
-
+    
+    get_info()
+    {
+      let mail = <string><unknown>localStorage.getItem('user');
+      let mails = JSON.parse(mail);
+      mails = mails.email;
+      return this.firestoreservice.collection('information',ref =>ref.where('mail','==',mails)).snapshotChanges().pipe(map(chamges =>{
+        return chamges.map(a =>{
+          const data = a.payload.doc.data() as Item;
+          data.id = a.payload.doc.id;
+          return data;
+        })
+      }))
+    }
     get_diplome()
     {
       let mail = <string><unknown>localStorage.getItem('user');

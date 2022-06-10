@@ -2,6 +2,7 @@ import { style } from '@angular/animations';
 import { Component, getNgModuleById, Input, OnInit } from '@angular/core';
 import { window } from 'rxjs';
 import { Cv } from './appJSON';
+import { FirebaseService } from 'src/app/firebase.service';
 
 @Component({
   selector: 'app-information',
@@ -20,7 +21,10 @@ export class InformationComponent implements OnInit {
    public github : string = "";
    public colorBlue : string ="blue";
   //  public colorRed : string ="red";
+  constructor(public cruds : FirebaseService)
+  {
 
+  }
   cv: Cv[] = [
     { details: "Details Personnels",
       nom: "Iya boulamdi daniel",
@@ -138,9 +142,14 @@ export class InformationComponent implements OnInit {
     localStorage.setItem("github",value);
     document.location.reload();
    }
+   info! : any[];
   ngOnInit(): void {
     this.email = localStorage.getItem("emails");
-
+    this.cruds.get_lamgues().subscribe(data  =>{
+      // console.log(data[0].mail);
+      this.info =data;   
+      console.log(data) ;
+    })
   //  console.log(this.Bnom);
     var noms  = localStorage.getItem("nom");
     var mails  = localStorage.getItem("mail");
