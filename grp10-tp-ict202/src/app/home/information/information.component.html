@@ -1,13 +1,13 @@
 <!-- image -->
 <input type="file"  accept=".png,.jpg" (change)="updateImage($event)">
-<img [src]="info[0].photo"  alt=""  style="width: 180px; height: 180px" />
+<img [src]=info[0].photo  alt=""  style="width: 180px; height: 180px" />
 
 <!-- Modals INFORMATION -->
 <p-dialog header="Details Personnels" [(visible)]="geeksDetails">
   <input type="text" #nom placeholder="Nom" /><br />
   <input type="text" #prenom placeholder="Prenom" /><br />
   <input type="text" #lieuNaiss placeholder="Lieu de Naissance" /><br>
-  <input type="text" #dateNaiss placeholder="Date de Naissance" /><br>
+  <input type="date" #dateNaiss value="2022-01-01" placeholder="Date de Naissance" /><br>
   <input type="text" #rue placeholder="Addresse de residence" /><br>
   <input type="text" #occupation placeholder="Occupation" /><br>
   <button
@@ -41,7 +41,7 @@
         value="{{info[0].prenoms}}" />
     </div>
     <div class="displayFlex">
-      <input type="text" class="inputBorder" #dateNaissS  (click)="boutonDateNaiss()"
+      <input type="date" class="inputBorder" value="2018-07-22" #dateNaissS  (click)="boutonDateNaiss()"
         value="{{info[0].dateNaissance}}" />
     </div>
     <div class="displayFlex">

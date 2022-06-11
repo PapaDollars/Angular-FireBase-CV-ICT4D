@@ -67,7 +67,7 @@
         <h1>Ressume : </h1><h3>{{info[0].description}}</h3>
         <hr>
       </div>
-<br><br><br>
+
       <div class="pt-3">
         <h5>Doplome</h5>
         <ul *ngFor="let dip of Diplome">
@@ -77,7 +77,7 @@
            Periode : {{dip.annee}}
              </li>
         </ul>
-      </div><br>
+      </div>
 
       <div class="pt-3">
         <h5>Experiences Profionnels</h5>
@@ -89,14 +89,14 @@
            Details : {{exp.details}}
           </li>
         </ul>
-      </div><br>
+      </div>
 
       <div class="pt-3">
         <h5>Competence</h5>
 
           <ul *ngFor="let comp of Competence">
             <li>Nom :{{comp.nom}}<br>
-                niveau :{{comp.niveau}}/100
+                Valuer :{{comp.niveau}}/100
               </li>
           </ul>
 

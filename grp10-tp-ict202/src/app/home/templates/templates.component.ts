@@ -20,7 +20,7 @@ export class TemplatesComponent {
       {
         getDisplay.style.display = "block";
 
-      let pdf = new jsPDF('p','pt','a3');
+      let pdf = new jsPDF('p','pt','a2');
       pdf.html(this.element1.nativeElement,{
         callback: (pdf) => {
           pdf.save("Template_1.pdf");
