@@ -1,2 +1,2 @@
-# CV Angular FireBase JSPDF
-cv avec Anglar 13, Firebase-Auth-Storage, JSPDF
+# CV Angular FireBase JSPDF Typescript
+cv avec Anglar 13, Firebase-Auth-Storage, JSPDF, typescript
