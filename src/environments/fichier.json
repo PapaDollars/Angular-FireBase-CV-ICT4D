@@ -1,0 +1,72 @@
+{
+    "all":{
+        
+            "nom": "ndjichou elie",
+            "image": "photo.jpeg.jpg",
+          
+            "experience": [
+              {
+                "titre": "ex: cultivateur",
+                "periode": "Mar. 2018-present",
+                "detail": "assiste mon pere dans la plantation des legume (de toute qualite) ..."
+              },
+              {
+                "titre": "ex: prof d'economie",
+                "periode": "Fev. 2021-present",
+                "detail": "repetiteur a domicile ..."
+              },
+              {
+                "titre": "...",
+                "periode": "...",
+                "detail": " ..."
+              }
+            ],
+          
+            "formation": [
+              {
+                "titre": "LICENCE 2 <strong>ICT4D</strong>",
+                "ecole": "universite de yaounde 1",
+                "periode": "2020-present"
+              },
+              {
+                "titre": "LICENCE 1 <strong>ICT4D</strong>",
+                "ecole": "universite de yaounde 1",
+                "periode": "2019-2020"
+              }
+            ],
+          
+            "competances": [
+              {
+                "nom": "HTML",
+                "evolution": "80%"
+              },
+              {
+                "nom": "CSS",
+                "evolution": "70%"
+              },
+              {
+                "nom": "autre nom",
+                "evolution": "autre pourcentage"
+              }
+            ],
+          
+            "biographie": [
+              {
+                "poste": "Prof de Reprtion",
+                "profil": "Passionne par l'informatique et le football."
+              }
+            ],
+            "icons": [
+              {
+                "nom": "exple@gmail.com",
+                "url": "logo base64 de gmail"
+              },
+              {
+                "nom": "autre compte",
+                "url": "..."
+              }
+            ]
+          }
+          
+    
+}
