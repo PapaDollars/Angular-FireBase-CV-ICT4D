@@ -16,6 +16,7 @@ import { ThisReceiver } from '@angular/compiler';
   providedIn: 'root'
 })
 export class FirebaseService {
+  [x: string]: any;
   isloggedIn = false;
   
   constructor(public firebaseAuth : AngularFireAuth,public firestoreservice : AngularFirestore) {
@@ -96,7 +97,50 @@ export class FirebaseService {
       Record['mail'] = mails.email;
       return this.firestoreservice.collection('loisirs').add(Record);
     }
+
+    create_Contact(Record : any)
+    {
+      let mail = <string><unknown>localStorage.getItem('user');
+      let mails = JSON.parse(mail);
+      Record['mail'] = mails.email;
+      return this.firestoreservice.collection('contact').add(Record);
+    }
+
+    create_Mial(Record : any)
+    {
+      let mail = <string><unknown>localStorage.getItem('user');
+      let mails = JSON.parse(mail);
+      Record['mail'] = mails.email;
+      return this.firestoreservice.collection('addressemail').add(Record);
+    }
+
+    get_AddresseMail()
+    {
+      let mail = <string><unknown>localStorage.getItem('user');
+      let mails = JSON.parse(mail);
+      mails = mails.email;
+      return this.firestoreservice.collection('addressemail',ref =>ref.where('mail','==',mails)).snapshotChanges().pipe(map(chamges =>{
+        return chamges.map(a =>{
+          const data = a.payload.doc.data() as Item;
+          data.id = a.payload.doc.id;
+          return data;
+        })
+      }))
+    }
   
+    get_Contact()
+    {
+      let mail = <string><unknown>localStorage.getItem('user');
+      let mails = JSON.parse(mail);
+      mails = mails.email;
+      return this.firestoreservice.collection('contact',ref =>ref.where('mail','==',mails)).snapshotChanges().pipe(map(chamges =>{
+        return chamges.map(a =>{
+          const data = a.payload.doc.data() as Item;
+          data.id = a.payload.doc.id;
+          return data;
+        })
+      }))
+    }
     
     get_info()
     {
@@ -221,6 +265,18 @@ export class FirebaseService {
     {
       this.Itemdoc = this.firestoreservice.doc('loisirs/'+Loisirid);
       this.Itemdoc.delete();
+    }
+
+    updateinfo(info : Item){
+      this.Itemdoc = this.firestoreservice.doc('information/'+info.id);
+      this.Itemdoc.update(info);
+      alert('ajour !')
+    }
+
+    updateDwnloadUrl(Record : Item)
+    {
+      this.Itemdoc = this.firestoreservice.doc('information/'+Record.id);
+      this.Itemdoc.update(Record);
     }
 
 } 

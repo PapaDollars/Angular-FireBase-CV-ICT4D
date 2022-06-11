@@ -14,7 +14,28 @@ export class Template1Component implements OnInit {
    Diplome! : any[];
    Langue! : any[];
    Loisir! : any[];
+   mails!:any[];
+   contact!:any[];
+   info! : any[];
   ngOnInit() {
+
+    this.cruds.get_info().subscribe(data  =>{
+      // console.log(data[0].mail);
+      this.info =data;   
+      console.log(data) ;
+    })
+
+    this.cruds.get_AddresseMail().subscribe(data  =>{
+      // console.log(data[0].mail);
+      this.mails =data;   
+      console.log(data) ;
+    })
+
+    this.cruds.get_Contact().subscribe(data  =>{
+      // console.log(data[0].mail);
+      this.contact =data;   
+      console.log(data) ;
+    })
 
     this.cruds.get_competence().subscribe(data  =>{
       // console.log(data[0].mail);

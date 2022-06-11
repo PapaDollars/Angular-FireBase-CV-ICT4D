@@ -1,5 +1,6 @@
 <!-- image -->
-<img src="./img.png" alt="" style="width: 180px; height: 180px" />
+<input type="file"  accept=".png,.jpg" (change)="updateImage($event)">
+<img [src]="info[0].photo"  alt=""  style="width: 180px; height: 180px" />
 
 <!-- Modals INFORMATION -->
 <p-dialog header="Details Personnels" [(visible)]="geeksDetails">
@@ -30,48 +31,33 @@
   <ng-template pTemplate="header" [toggleable]="true">
     <p-button (click)="gfgDetails()" label="{{this.cv[0].details }}"></p-button>
   </ng-template>
-  <p-scrollPanel [style]="{ width: '100%', height: '150px' }">
+  <p-scrollPanel [style]="{ width: '100%', height: '150px'  }">
 
     <div class="displayFlex">
-      <input type="text" class="inputBorder" #nom [id]="nom" (click)="boutonNom()" value="{{ cv[0].nom }}" />
-      <button id="Bnom" class="allBouton" (click)="inputNom(nom.value)">
-        OK
-      </button>
+      <input type="text" class="inputBorder" #noms  (click)="boutonNom()" value="{{info[0].noms}}" />
     </div>
     <div class="displayFlex">
-      <input type="text" class="inputBorder" #prenom [id]="prenom" (click)="boutonPrenom()"
-        value="{{ cv[0].prenom }}" />
-      <button id="Bprenom" class="allBouton" (click)="inputPrenom(prenom.value)">
-        OK
-      </button>
+      <input type="text" class="inputBorder" #prenoms  (click)="boutonPrenom()"
+        value="{{info[0].prenoms}}" />
     </div>
     <div class="displayFlex">
-      <input type="text" class="inputBorder" #ville [id]="ville" (click)="boutonVille()" value="{{ cv[0].ville }}" />
-      <button id="Bville" class="allBouton" (click)="inputVille(ville.value)">
-        OK
-      </button>
+      <input type="text" class="inputBorder" #dateNaissS  (click)="boutonDateNaiss()"
+        value="{{info[0].dateNaissance}}" />
     </div>
     <div class="displayFlex">
-      <input type="text" class="inputBorder" #dateNaiss [id]="dateNaiss" (click)="boutonDateNaiss()"
-        value="{{ cv[0].dateNaiss }}" />
-      <button id="BdateNaiss" class="allBouton" (click)="inputDateNaiss(dateNaiss.value)">
-        OK
-      </button>
+      <input type="text" class="inputBorder" #ville  (click)="boutonVille()" value="{{info[0].lieuNaissance}}" />
     </div>
     <div class="displayFlex">
-      <input type="text" class="inputBorder" #rue [id]="rue" (click)="boutonRue()" value="{{ cv[0].rue }}" />
-      <button id="Brue" class="allBouton" (click)="inputRue(rue.value)">
-        OK
-      </button>
+      <input type="text" class="inputBorder" #rueS  (click)="boutonRue()" value="{{info[0].adresse}}" />
     </div>
     <div class="displayFlex">
-      <input type="text" class="inputBorder" #occupation [id]="occupation" (click)="boutonOccupation()"
-        value="{{ cv[0].occupation }}" />
-      <button id="Bccupation" class="allBouton" (click)="inputOccupation(occupation.value)">
-        OK
-      </button>
+      <input type="text" class="inputBorder" #occupationS  (click)="boutonOccupation()"
+        value="{{info[0].occupation}}" />
     </div>
-
+    <div class="displayFlex">
+      <textarea name="" id="" cols="30" rows="10" #description value="{{info[0].description}}"></textarea>
+    </div>
+    <button (click)="updateinfo(noms.value,prenoms.value,ville.value,dateNaissS.value,rueS.value,occupationS.value,description.value)">Modifier</button>
   </p-scrollPanel>
 </p-fieldset>
 
@@ -82,12 +68,9 @@
   </ng-template>
   <p-scrollPanel [style]="{ width: '100%', height: '150px' }">
 
-    <div class="displayFlex">
+    <div class="displayFlex" *ngFor="let num of  conctacts">
       <input type="text" class="inputBorder" #numero [id]="numero" (click)="boutonNumero()"
-        value="{{ cv[0].numero }}" />
-      <button id="Bnumero" class="allBouton" (click)="inputNumero(numero.value)">
-        OK
-      </button>
+        value="{{num.contact}}" />
     </div>
 
   </p-scrollPanel>
@@ -100,10 +83,10 @@
   </ng-template>
   <p-scrollPanel [style]="{ width: '100%', height: '150px' }">
 
-    <div class="displayFlex">
-      <input type="text" class="inputBorder" #mail [id]="mail" (click)="boutonMail()" value="{{ cv[0].mail }}" />
+    <div class="displayFlex" *ngFor="let mail of mails">
+      <input type="text" class="inputBorder" #mail [id]="mail" (click)="boutonMail()" value="{{mail.addresseMail}}" />
       <button id="BOuvrirmail" class="allBouton">
-        <a href="mailto:iyadaniel6@gmail.com " target="_blank" class="no-underline hover:underline">Ouvrir
+        <a href="mailto:{{mail.addresseMail}}" target="_blank" class="no-underline hover:underline">Ouvrir
         </a>
       </button>
       <button id="Bmail" class="allBouton" (click)="inputMail(mail.value)">

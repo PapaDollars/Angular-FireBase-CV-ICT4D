@@ -2,6 +2,11 @@ import { style } from '@angular/animations';
 import { Component, getNgModuleById, Input, OnInit } from '@angular/core';
 import { window } from 'rxjs';
 import { Cv } from './appJSON';
+import { FirebaseService } from 'src/app/firebase.service';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/compat/storage';
+import { url } from 'inspector';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-information',
@@ -78,48 +83,56 @@ export class InformationComponent implements OnInit {
     Record['dateNaiss']=dateNaiss;
     Record['rue']=rue;
     Record['occupation']=occupation;
-
-    // this.cruds.create_Details(Record).then(res =>{
-    //   console.log(res);
       alert("Information ajouter ");
-    // }).catch(error =>{
-    //   console.log(error);
-    // });
-
   }
+
 
   getcontact(contact:any)
   {
     let Record ={
-      'contact' :''
+      'contact' :'',
+      'mail':''
     };
     Record['contact']=contact;
 
-    // this.cruds.create_Contact(Record).then(res =>{
-    //   console.log(res);
-      alert("Contacts ajouter ");
-    // }).catch(error =>{
-    //   console.log(error);
-    // });
+    this.cruds.create_Contact(Record).then(res =>{
+      console.log(res);
+      alert("Contact ajouter ");
+    }).catch(error =>{
+      console.log(error);
+    });
 
   }
 
   getmail(mail:any)
   {
     let Record ={
-      'mail' :''
+      'mail' :'',
+      'addresseMail':""
     };
-    Record['mail']=mail;
-
-    // this.cruds.create_Contact(Record).then(res =>{
-    //   console.log(res);
-      alert("Mail ajouter ");
-    // }).catch(error =>{
-    //   console.log(error);
-    // });
-
+    Record['addresseMail']=mail;
+    this.cruds.create_Mial(Record).then(res =>{
+      console.log(res);
+      alert("addressemail ajouter ");
+    }).catch(error =>{
+      console.log(error);
+    });
   }
+  
+  updateinfo(nom : any,prenom : any,ville :any,dateNaiss :any,rue : any,occupation : any,description :any)
+  {
 
+     this.info[0].noms=nom;
+     this.info[0].prenoms=prenom;
+     this.info[0].dateNaissance=dateNaiss;
+     this.info[0].lieuNaissance=ville;;
+     this.info[0].adresse=rue;
+     this.info[0].occupation=occupation;
+     this.info[0].description=description;
+     console.log(this.info[0])
+     console.log(nom+'dsds');
+     this.cruds.updateinfo(this.info[0]);
+  }
   boutonNom(){
     let Bnom : any;
     Bnom = document.getElementById("Bnom");
@@ -242,68 +255,52 @@ export class InformationComponent implements OnInit {
     localStorage.setItem("github",value);
     document.location.reload();
    }
+   constructor(public cruds :FirebaseService, public crudStorage : AngularFireStorage,public firestoreservice : AngularFirestore)
+   {
+
+   }
+
+   
+  succesupdate !: string;
+  task !: AngularFireUploadTask;
+  ref ! : AngularFireStorageReference;
+
+  updateImage(event : any)
+  {
+   
+     const id = Math.random().toString(36).substring(2)
+     this.ref=this.crudStorage.ref(id)
+     this.task=this.ref.put(event.target.files[0])
+     this.task.then((data )=>{
+      data.ref.getDownloadURL().then(url=>{
+        this.firestoreservice.collection('information').doc(this.info[0].id).update({photo:url});
+      })
+     })
+  } 
+
+   info !: any[];
+   conctacts !: any[];
+   mails ! : any[];
   ngOnInit(): void {
     this.email = localStorage.getItem("emails");
+    this.cruds.get_info().subscribe(data  =>{
+      // console.log(data[0].mail);
+      this.info =data;
+      console.log(data) ;
+    })
 
-  //  console.log(this.Bnom);
-    var noms  = localStorage.getItem("nom");
-    var prenoms  = localStorage.getItem("prenom");
-    var rues  = localStorage.getItem("rue");
-    var mails  = localStorage.getItem("mail");
-    var numeros  = localStorage.getItem("nnumeroom");
-    var villes  = localStorage.getItem("ville");
-    var dateNaisss  = localStorage.getItem("dateNaiss");
-    var occupations  = localStorage.getItem("occupation");
-    var linkedins  = localStorage.getItem("linkedin");
-    var stackoverflows  = localStorage.getItem("stackoverflow");
-    var githubs  = localStorage.getItem("github");
-    if(noms!=null)
-      {
-        this.cv[0].nom = noms;
-      }
-      if(prenoms!=null)
-      {
-        this.cv[0].prenom = prenoms;
-      }
-      if(rues!=null)
-      {
-        this.cv[0].rue = rues;
-      }
-      if( mails!=null)
-      {
-        this.cv[0].mail = mails;
-      }
-      if(numeros!=null)
-      {
-        this.cv[0].numero = numeros;
-      }
-      if(villes!=null)
-      {
-        this.cv[0].ville = villes;
-      }
-      if(dateNaisss!=null)
-      {
-        this.cv[0].dateNaiss = dateNaisss;
-      }
-      if(occupations!=null)
-      {
-        this.cv[0].occupation = occupations;
-      }
-      if(linkedins!=null)
-      {
-        this.cv[0].linkedin = linkedins;
-      }
-      if(stackoverflows!=null)
-      {
-        this.cv[0].stackoverflow = stackoverflows;
-      }
-      if(githubs!=null)
-      {
-        this.cv[0].github = githubs;
-      }
-      // else{
-      //    alert("valeur vide !");
-      // }
+    this.cruds.get_Contact().subscribe(data  =>{
+      // console.log(data[0].mail);
+      this.conctacts =data;
+      console.log(data) ;
+    })
+
+    this.cruds.get_AddresseMail().subscribe(data  =>{
+      // console.log(data[0].mail);
+      this.mails =data;
+      console.log(data) ;
+    })
+
   }
 
 }

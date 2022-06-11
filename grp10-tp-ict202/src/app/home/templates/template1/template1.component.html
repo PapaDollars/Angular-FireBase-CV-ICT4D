@@ -5,7 +5,7 @@
     <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 bg_color2 ">
 
       <div class="bg_color1 rounded pt-2">
-        <img src="./assets/images/profil.png" class="rounded profil"
+        <img [src]="info[0].photo" class="rounded profil"
             width="150" height="140" alt="profil" />
       </div>
 
@@ -13,13 +13,16 @@
 
        <div>
         <h5>Contact :</h5>
-        <span>234567890</span><br>
-        <span>234567890</span>
+        <ul *ngFor="let num of  contact">
+          <li>{{num.contact}}</li>
+        </ul>
        </div><hr>
 
        <div>
          <h5>Mail :</h5>
-         <p>iya@gmail.com</p>
+         <ul *ngFor="let mail of mails">
+           <li>{{mail.addresseMail}}</li>
+         </ul>
        </div><hr>
 
        <div>

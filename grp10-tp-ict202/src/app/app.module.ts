@@ -12,12 +12,10 @@ import {SidebarModule} from 'primeng/sidebar';
 import {TabViewModule} from 'primeng/tabview';
 import {InputTextModule} from 'primeng/inputtext';
 import { AngularFireModule } from "@angular/fire/compat";
-import { AngularFireAuthModule } from "@angular/fire/compat/auth";
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { FirebaseService } from './firebase.service';
-import { NgModel } from '@angular/forms';
 
 import {CardModule} from 'primeng/card';
 
@@ -67,7 +65,9 @@ import { EmailserviceService } from './emailservice.service';
     InputTextModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    AngularFirestoreModule,
     AngularFirestoreModule
+
   ],
   providers: [FirebaseService,EmailserviceService],
   bootstrap: [AppComponent]
