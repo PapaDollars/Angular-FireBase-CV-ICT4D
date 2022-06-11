@@ -23,6 +23,7 @@ export class Template1Component implements OnInit {
       // console.log(data[0].mail);
       this.info =data;   
       console.log(data) ;
+      // doc.addImage(img, 'JPEG', 30, 20);
     })
 
     this.cruds.get_AddresseMail().subscribe(data  =>{

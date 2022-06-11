@@ -5,12 +5,19 @@
     <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 bg_color2 ">
 
       <div class="bg_color1 rounded pt-2">
-        <img [src]="info[0].photo" class="rounded profil"
+        <img src="profil.png" class="rounded profil"
             width="150" height="140" alt="profil" />
       </div>
 
       <div class="pt-5 pl-4 pb-5 padding bg_color1 mb-5 rounded">
-
+        <p>
+          Nom : {{info[0].noms}}<br>
+          Prenom :{{info[0].prenoms}}<br>
+          DateNaissance : {{info[0].dateNaissance}}<br>
+          LieuNiassance : {{info[0].lieuNaissance}}<br>
+          Addresse : {{info[0].adresse}}<br>
+          Occupation : {{info[0].occupation}}
+         </p>
        <div>
         <h5>Contact :</h5>
         <ul *ngFor="let num of  contact">
@@ -57,18 +64,8 @@
     <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 bg_color2 ">
 
       <div class="text-center pt-5">
-        <h1>template1 works!</h1>
+        <h1>Ressume : </h1><h3>{{info[0].description}}</h3>
         <hr>
-        <div>
-          <h5>Address</h5>
-          <span>Univ Yaounde 1</span>
-        </div>
-      </div>
-
-      <div class="padding_obj">
-        <h5>Objective</h5>
-        <p>Objectif <br>
-          Objectif Objectif</p>
       </div>
 
       <div class="pt-3">
